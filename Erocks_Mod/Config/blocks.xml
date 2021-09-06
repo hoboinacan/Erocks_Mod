@@ -1,0 +1,5 @@
+<configs>
+	<setattribute xpath="/blocks/block[@name='solarbank']" name="UnlockedBy">perkAdvancedEngineering</setattribute>
+	<setattribute xpath="/blocks/block[@name='solarbank']" name="DisplayInfo">Name</setattribute>
+	<setattribute xpath="/blocks/block[@name='solarbank']" name="CreativeMode">None</setattribute>
+</configs>

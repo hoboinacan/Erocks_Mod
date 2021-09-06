@@ -1,0 +1,22 @@
+<configs>
+<!--
+	local_offset values:
+		right(+)/left(-),
+		up(+)/down(-),
+		front(+)/back(-)
+-->
+	<append xpath="/buffs">
+		<buff name="burningDeco" hidden="true">
+			<effect_group>
+				<!-- head burning effect -->
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="Head"/>
+			</effect_group>
+		</buff>
+		<buff name="electricDeco" hidden="true">
+			<effect_group>
+				<!-- head electric effect -->
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_electric_shock_small" parent_transform="Head"/>
+			</effect_group>
+		</buff>
+	</append>
+</configs>

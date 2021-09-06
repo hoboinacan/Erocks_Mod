@@ -1,0 +1,55 @@
+<configs>
+	<!-- Add new enemies to horde groups -->
+	<append xpath="/entitygroups/entitygroup[starts-with(@name,'wanderingHordeStage')]">
+		<entity name="animalWolfElectric" prob=".5" />
+		<entity name="animalWolfFire" prob=".5" />
+		<entity name="animalZombieFireDragon" prob=".05" />
+		<entity name="animalZombieElectricDragon" prob=".05" />
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[starts-with(@name,'FwanderingHordeStage')]">
+		<entity name="animalWolfElectric" prob="3" />
+		<entity name="animalWolfFire" prob="3" />
+		<entity name="animalZombieFireDragon" prob=".1" />
+		<entity name="animalZombieElectricDragon" prob=".1" />
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[starts-with(@name,'scoutHordeStage')]">
+		<entity name="animalWolfElectric" prob="1" />
+		<entity name="animalWolfFire" prob="1" />
+		<entity name="animalZombieFireDragon" prob=".05" />
+		<entity name="animalZombieElectricDragon" prob=".05" />
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[starts-with(@name,'feralHordeStage')]">
+		<entity name="animalWolfElectric" prob=".5" />
+		<entity name="animalWolfFire" prob=".5" />
+		<entity name="animalZombieFireDragon" prob=".05" />
+		<entity name="animalZombieElectricDragon" prob=".05" />
+	</append>
+
+	<!-- BEGIN DF specific groups -->
+	<append xpath="/entitygroups/entitygroup[starts-with(@name,'BMHorde')]">
+		<entity name="animalWolfElectric" prob=".5" />
+		<entity name="animalWolfFire" prob=".5" />
+		<entity name="animalZombieFireDragon" prob=".05" />
+		<entity name="animalZombieElectricDragon" prob=".05" />
+	</append>
+	<!-- END DF GROUPS -->
+	
+	<!-- Add new enemies to world spawn groups -->
+	<append xpath="/entitygroups/entitygroup[@name='EnemyAnimalsBurntForest' or @name='EnemyAnimalsWasteland' or @name='EnemyAnimalsSnow' or @name='EnemyAnimalsDesert' or @name='ZombiesWasteland' or @name='ZombiesHoard']">
+		<entity name="animalWolfElectric" prob=".1" />
+		<entity name="animalWolfFire" prob=".1" />
+		<entity name="animalZombieFireDragon" prob=".05" />
+		<entity name="animalZombieElectricDragon" prob=".05" />
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='WolfGroup' or @name='WolfPack']">
+		<entity name="animalWolfElectric" prob=".1" />
+		<entity name="animalWolfFire" prob=".1" />
+	</append>
+	<append xpath="/entitygroups/entitygroup[@name='VultureGroup']">
+		<entity name="animalZombieFireDragon" prob=".01" />
+		<entity name="animalZombieElectricDragon" prob=".01" />
+	</append>
+</configs>
