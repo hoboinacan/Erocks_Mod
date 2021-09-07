@@ -51,10 +51,14 @@
 		<entity name="animalZombieElectricDragon" prob=".05" />
 	</append>
 	
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
+		<entity name="zombieFireBowStripper" prob=".1" />
+	</append>
+	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
 		<entity name="zombieFireBowStripper" prob=".75" />
 	</append>
-	
+
 	<append xpath="/entitygroups/entitygroup[@name='WolfGroup' or @name='WolfPack']">
 		<entity name="animalWolfElectric" prob=".1" />
 		<entity name="animalWolfFire" prob=".1" />

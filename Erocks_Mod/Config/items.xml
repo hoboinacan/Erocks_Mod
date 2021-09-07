@@ -179,14 +179,15 @@
 			<property name="Meshfile" value="particleeffects/p_electric_shock_small" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
+			<property name="DamageType" value="Heat"/>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
 				<property name="ExplodeOnHit" value="true"/>
 				<property name="Explosion.ParticleIndex" value="12"/>
 				<property name="Explosion.RadiusBlocks" value="5"/>
 				<property name="Explosion.RadiusEntities" value="5"/>
-				<property name="Explosion.EntityDamage" value="50"/>
-				<property name="Explosion.BlockDamage" value="300"/>
+				<property name="Explosion.EntityDamage" value="150"/>
+				<property name="Explosion.BlockDamage" value="1000"/>
 				<property name="Explosion.Buff" value="buffShocked"/>
 				<property name="CollisionRadius" value="1"/>
 				<property name="FlyTime" value="2"/>
@@ -194,10 +195,12 @@
 				<property name="LifeTime" value="20"/>
 			</property>
 			<effect_group name="ammoProjectileZombieElectricBombard" tiered="false">
+<!--
 				<passive_effect name="EntityDamage" operation="base_set" value="50"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="300"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value=".75" tags="earth,stone,cloth"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value="2.5" tags="metal"/>
+-->
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth,stone,cloth,wood"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value=".8" tags="metal"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffShocked"/>
 			</effect_group>
 		</item>
@@ -250,14 +253,15 @@
 			<property name="Meshfile" value="particleeffects/p_fire_small" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
+			<property name="DamageType" value="Heat"/>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
 				<property name="ExplodeOnHit" value="true"/>
 				<property name="Explosion.ParticleIndex" value="10"/>
 				<property name="Explosion.RadiusBlocks" value="5"/>
 				<property name="Explosion.RadiusEntities" value="5"/>
-				<property name="Explosion.EntityDamage" value="50"/>
-				<property name="Explosion.BlockDamage" value="300"/>
+				<property name="Explosion.EntityDamage" value="100"/>
+				<property name="Explosion.BlockDamage" value="1000"/>
 				<property name="Explosion.Buff" value="buffBurningMolotov"/>
 				<property name="CollisionRadius" value="1"/>
 				<property name="FlyTime" value="2"/>
@@ -265,10 +269,12 @@
 				<property name="LifeTime" value="20"/>
 			</property>
 			<effect_group name="ammoProjectileZombieFireBombard" tiered="false">
+<!--
 				<passive_effect name="EntityDamage" operation="base_set" value="50"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="300"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value=".75" tags="earth,stone,cloth,metal"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value="2.5" tags="wood"/>
+-->
+				<passive_effect name="DamageModifier" operation="perc_add" value="-.8" tags="earth,stone,metal"/>
+				<passive_effect name="DamageModifier" operation="perc_add" value=".8" tags="wood,cloth"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffBurningMolotov"/>
 			</effect_group>
 		</item>
