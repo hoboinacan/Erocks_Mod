@@ -6,16 +6,26 @@
 		front(+)/back(-)
 -->
 	<append xpath="/buffs">
+		
+		<!-- head burning effect -->
 		<buff name="burningDeco" hidden="true">
 			<effect_group>
-				<!-- head burning effect -->
 				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="Head"/>
 			</effect_group>
 		</buff>
+		
+		<!-- head electric effect -->
 		<buff name="electricDeco" hidden="true">
 			<effect_group>
-				<!-- head electric effect -->
 				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_electric_shock_small" parent_transform="Head"/>
+			</effect_group>
+		</buff>
+		
+		<!-- hand flaming bow -->
+		<buff name="FireBowDeco" hidden="true">
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Other/Items?Weapons/Ranged/Bows/CompoundBow/CompoundBowPrefab.prefab" parent_transform="LeftHand" local_offset="0,0,0" local_rotation="0,0,0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="LeftHand"/>
 			</effect_group>
 		</buff>
 	</append>

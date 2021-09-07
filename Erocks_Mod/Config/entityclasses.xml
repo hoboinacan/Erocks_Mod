@@ -182,5 +182,22 @@
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>
 
+		<!-- Stripper with fire bow attack -->
+		<entity_class name="zombieFireBowStripper" extends="zombieDarlene">
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardCocktailWaitressHDRagdoll.prefab"/>
+
+			<!-- Gameplay -->
+			<property name="HandItem" value="meleeHandFireArrow"/>
+			
+			<property name="AITask-1" value="RangedAttackTarget" data="itemType=1;cooldown=2;duration=5"/>
+			<property name="AITask-2" value="Wander"/>
+
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="250"/>
+				<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
+				<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="FireBowDeco"/>
+			</effect_group>
+		</entity_class>
 	</append>
 </configs>
