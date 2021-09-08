@@ -4,6 +4,11 @@
 		right(+)/left(-),
 		up(+)/down(-),
 		front(+)/back(-)
+
+	local_rotation values (degrees):
+		pitch: right(+)/left(-),
+		yaw: up(+)/down(-),
+		roll: front(+)/back(-)
 -->
 	<append xpath="/buffs">
 		
@@ -26,6 +31,92 @@
 			<effect_group>
 				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Other/Items?Weapons/Ranged/Bows/CompoundBow/CompoundBowPrefab.prefab" parent_transform="LeftHand" local_offset="0,0,0" local_rotation="0,0,0"/>
 				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="LeftHand"/>
+			</effect_group>
+		</buff>
+
+		<!-- Zombieclaus decoration -->
+		<buff name="zombieClausDeco" hidden="true">
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Entities/Zombies?Zombies/zombieStandardSnowRagdoll.prefab" local_offset="0,.5,0" local_rotation="0,0,0" parent_transform="Spine"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Other/Items?Weapons/Melee/Candycane/candycaneShivPrefab.prefab" local_offset=".14,.7,.35" local_rotation="0,0,45" parent_transform="Spine"/>
+			</effect_group>
+		</buff>
+		
+		<!-- Zombieclaus freeze effect -->
+		<buff name="buffFreezingZombie" hidden="true">
+			<damage_type value="cold"/>
+			<stack_type value="ignore"/><duration value="0.1"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$buffFreezingElementDuration" operation="set" value="10"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffFreezingElement"/>
+			</effect_group>
+		</buff>
+		
+		<buff name="buffFreezingElement" hidden="true">
+			<damage_type value="cold"/>
+			<stack_type value="replace"/><duration value="0"/>
+			<effect_group> <!-- reset stack on buff -->
+				<requirement name="CVarCompare" cvar="$buffFreezingElementDuration" operation="LTE" value="10"/>
+					<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="$buffFreezingElementDuration" operation="set" value="10"/>
+					<triggered_effect trigger="onSelfBuffStack" action="ModifyCVar" cvar="$buffFreezingElementDuration" operation="set" value="10"/>
+			</effect_group>
+			<effect_group> <!-- tick time down and remove when LT 0 time left -->
+				<passive_effect name="BuffBlink" operation="base_set" value="2" duration="0,3" tags="buffFreezingElement"/>
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="$buffFreezingElementDuration" operation="add" value="-1"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFreezingElement">
+					<requirement name="CVarCompare" cvar="$buffFreezingElementDuration" operation="LTE" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="$buffFreezingElementDuration" operation="set" value="0"/>
+			</effect_group>
+
+			<effect_group> <!-- apply damage and buff details -->
+				<triggered_effect trigger="onSelfBuffStart" action="AddBuff" buff="buffIsFreezing"/>
+
+				<passive_effect name="HealthChangeOT" operation="base_subtract" value="1.5"/>
+				<passive_effect name="FoodChangeOT" operation="base_subtract" value="2"/>
+				<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.9,0"/>
+				<passive_effect name="HypothermalResist" operation="base_add" value="-10"/>
+				<passive_effect name="HyperthermalResist" operation="base_add" value="30"/>
+			</effect_group>
+		</buff>
+		
+		<!-- Freezing Buff -->
+		<buff name="buffIsFreezing" name_key="buffIsFreezingName" description_key="buffIsFreezingDesc" tooltip_key="buffIsFreezingTooltip" icon="ui_game_symbol_cold" icon_color="0,0,255" icon_blink="true">
+			<damage_type value="cold"/>
+			<stack_type value="ignore"/>
+			<duration value="0"/><update_rate value="1"/>
+			<display_value value=".buffIsFreezingDisplay"/><display_value_format value="time"/>
+
+			<effect_group> <!-- extinguish any freeze if buffCoffee is executed -->
+				<requirement name="HasBuff" buff="buffCoffee"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffFreezingElement"/>
+			</effect_group>
+
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar=".buffIsFreezingDisplay" operation="set" value="@$buffFreezingElementDuration"/>
+
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar=".buffIsFreezingDisplay" operation="set" value="@$buffFreezingElementDuration"/>
+			</effect_group>
+
+			<effect_group> <!-- terminate only if all freeze buffs are gone -->
+				<requirements>
+					<requirement name="NotHasBuff" buff="buffFreezingElement"/>
+				</requirements>
+					<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffIsFreezing"/>
+			</effect_group>
+
+			<effect_group name="run particles, cleanup">
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffIsFreezingDisplay" operation="set" value="0"/>
+
+<!-- remove particle effect... for now
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,-.2,0" parent_transform="LOD0" shape_mesh="true"/>
+				<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,-.2,0" parent_transform="LOD0" shape_mesh="true"/>
+
+				<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+				<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+-->
+				<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="FreezingTip"/>
 			</effect_group>
 		</buff>
 	</append>

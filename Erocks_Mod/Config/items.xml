@@ -347,5 +347,59 @@
 				<display_value name="dDuration" value="14"/>
 			</effect_group>
 		</item>
+
+		<!-- Weapon set for zombieclaus attack -->
+		<item name="meleeHandZombieclaus">
+			<property name="Extends" value="meleeHandZombieCopRadiated"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="Degradation" value="99999" param1="true"/>
+			<property class="Action0">
+				<property name="Buff" value="buffFreezingElement"/>
+			</property>
+			<property class="Action1"> <!-- UseAction -->
+				<property name="Magazine_items" value="ammoProjectileCandyCane"/>
+				<property name="Sound_warning" value=""/>
+				<property name="Sound_start" value=""/>
+				<property name="Sound_repeat" value=""/>
+				<property name="Sound_end" value=""/>
+				<property name="Sound_empty" value=""/>
+				<property name="Sound_reload" value=""/>
+			</property>
+			<effect_group name="meleeHandZombieclaus" tiered="false">
+				<passive_effect name="DamageFalloffRange" operation="base_set" value="150"/>
+				<passive_effect name="MaxRange" operation="base_set" value="200"/>
+				<passive_effect name="MagazineSize" operation="base_set" value="5"/>
+				<passive_effect name="BurstRoundCount" operation="base_set" value="1"/>
+				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="1"/>
+				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="1"/>
+				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
+			</effect_group>
+		</item>
+		
+		<!-- Ammo for zombieclaus attack -->
+		<item name="ammoProjectileCandyCane">
+			<property name="Extends" value="ammoProjectileZombieVomitRadiated"/>
+			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Candycane/candycaneShivPrefab.prefab"/>
+			<property name="Material" value="Mmetal"/>
+			<property name="CreativeMode" value="None"/>
+			<property name="Damage_type" value="Slashing"/>
+			<property class="Action1"> <!-- ranged -->
+				<property name="Class" value="Projectile"/>
+				<property name="DamageEntity" value="5"/>
+				<property name="DamageBlock" value="200"/>
+				<property name="ExplodeOnHit" value="false"/>
+				<property name="Explosion.ParticleIndex" value="0"/>
+				<property name="CollisionRadius" value=".5"/>
+				<property name="FlyTime" value="12"/>
+				<property name="Velocity" value="10"/>
+				<property name="LifeTime" value="15"/>
+				<property name="Buff" value="buffFreezingZombie"/>
+			</property>
+			<effect_group name="ammoProjectileCandyCane" tiered="false">
+				<passive_effect name="DamageModifier" operation="perc_set" value="1" tags="cloth,metal,wood,organic"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value=".25" tags="earth,stone"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffFreezingZombie"/>
+			</effect_group>
+		</item>
 	</append>
 </configs>

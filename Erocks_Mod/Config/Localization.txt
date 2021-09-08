@@ -1,0 +1,6 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+buffIsFreezingDesc,buffs,Buff,,,You are freezing.\n\nDrink a warm coffee to feel better.
+buffIsFreezingName,buffs,Buff,,,Freezing
+buffIsFreezingTooltip,buffs,Buff,,,You are freezing. Use coffee to warm yourself.
+FreezingTip_title,Journal Tip,,,,Freezing
+FreezingTip,Journal Tip,,,,"Some weapons, zombies, or parts of the environment can freeze you. To warm yourself you can drink a warm coffee."
