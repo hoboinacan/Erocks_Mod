@@ -28,6 +28,7 @@
 		<entity name="animalWolfElectric" prob=".5" />
 		<entity name="animalWolfFire" prob=".5" />
 		<entity name="zombieFireBowStripper" prob="1" />
+		<entity name="zombieclaus" prob=".5" />
 		<entity name="animalZombieFireDragon" prob=".05" />
 		<entity name="animalZombieElectricDragon" prob=".05" />
 	</append>
@@ -37,6 +38,7 @@
 		<entity name="animalWolfElectric" prob=".5" />
 		<entity name="animalWolfFire" prob=".5" />
 		<entity name="zombieFireBowStripper" prob="1" />
+		<entity name="zombieclaus" prob=".5" />
 		<entity name="animalZombieFireDragon" prob=".05" />
 		<entity name="animalZombieElectricDragon" prob=".05" />
 	</append>
@@ -57,6 +59,10 @@
 	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
 		<entity name="zombieFireBowStripper" prob=".75" />
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='SnowZombies']">
+		<entity name="zombieclaus" prob=".5" />
 	</append>
 
 	<append xpath="/entitygroups/entitygroup[@name='WolfGroup' or @name='WolfPack']">

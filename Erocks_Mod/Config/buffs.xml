@@ -75,7 +75,7 @@
 
 				<passive_effect name="HealthChangeOT" operation="base_subtract" value="1.5"/>
 				<passive_effect name="FoodChangeOT" operation="base_subtract" value="2"/>
-				<passive_effect name="WalkSpeed" operation="perc_subtract" value="0.9,0"/>
+				<passive_effect name="WalkSpeed" operation="perc_set" value="0.1,0"/>
 				<passive_effect name="HypothermalResist" operation="base_add" value="-10"/>
 				<passive_effect name="HyperthermalResist" operation="base_add" value="30"/>
 			</effect_group>
@@ -109,13 +109,9 @@
 			<effect_group name="run particles, cleanup">
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar=".buffIsFreezingDisplay" operation="set" value="0"/>
 
-<!-- remove particle effect... for now
-				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,-.2,0" parent_transform="LOD0" shape_mesh="true"/>
-				<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" local_offset="0,-.2,0" parent_transform="LOD0" shape_mesh="true"/>
+				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="2" effect_name="Cold"/>
+				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Cold"/>
 
-				<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
-				<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
--->
 				<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="FreezingTip"/>
 			</effect_group>
 		</buff>

@@ -193,7 +193,9 @@
 			
 			<property name="AITask-1" value="RangedAttackTarget" data="itemType=1;cooldown=2;duration=5"/>
 			<property name="AITask-2" value="Wander"/>
-
+			
+			<property name="SightRange" value="70"/>
+			
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="250"/>
 				<passive_effect name="HealthMax" operation="perc_set" value="1"/> <!-- Zombie HP scale -->
@@ -204,7 +206,8 @@
 		<!-- "Reindeer" with Zombieclaus on its back -->
 		<entity_class name="zombieclaus" extends="animalTemplateHostile">
 			<property name="Class" value="EntityVulture"/>
-			<property name="Tags" value="entity,animal,deer,feral,radiated"/>
+			<property name="EntityType" value="Zombie"/>
+			<property name="Tags" value="entity,animal,hostile,deer,feral,radiated"/>
 			<property name="Radiated" value=""/>
 			<property name="ReplaceMaterial1" value="#Entities/Zombies?Zombies/Materials/feral_eye.mat"/>
 			<property name="MapIcon" value="ui_game_symbol_tracking_deer"/>
@@ -224,7 +227,6 @@
 			<property name="Weight" value="370"/>
 			<property name="SurfaceCategory" value="organic"/>
 			<property name="ParticleOnDeath" value="blood_death"/>
-			<property name="SightRange" value="75"/>  <!-- distance in m -->
 			
 			<property name="SoundRandom" value="Enemies/Snow_Zombie_Male/zombiemalesnowroam"/>
 			<property name="SoundAlert" value="Enemies/Snow_Zombie_Male/zombiemalesnowalert"/>
@@ -238,21 +240,23 @@
 			<property name="DismemberMultiplierArms" value=".4"/>
 			<property name="DismemberMultiplierLegs" value=".4"/><!-- Radiated -->
 			<property name="PainResistPerHit" value=".9"/><!-- Radiated -->
+			<property name="MoveSpeed" value=".5"/>
+			<property name="MoveSpeedAggro" value="2.6, 2.6"/> <!-- Used when player in vehicle -->
 			<property name="MaxTurnSpeed" value="220"/>
-			<property name="MoveSpeedPanic" value="1.6"/>
 			<property name="TimeStayAfterDeath" value="300"/>
-			
-			<property name="AITask-1" value="RangedAttackTarget" data="itemType=1;cooldown=2;duration=4;minRange=3;maxRange=200"/>
-			<property name="AITask-2" value="ApproachAndAttackTarget" data="class=EntityNPC,0,EntityPlayer"/>
+
+			<property name="AITask-1" value="RangedAttackTarget" data="itemType=1;cooldown=2;duration=2;minRange=3;maxRange=200"/>
+			<property name="AITask-2" value="ApproachAndAttackTarget" data="class=EntityPlayer"/>
 			<property name="AITask-3" value="BreakBlock"/>
 			<property name="AITask-4" value="ApproachSpot"/>
 			<property name="AITask-5" value="Look"/>
 			<property name="AITask-6" value="Wander"/>
 			<property name="AITask-7" value=""/>
 			<property name="AITarget-1" value="SetAsTargetIfHurt"/>
-			<property name="AITarget-2" value="SetNearestEntityAsTarget" data="class=EntityPlayer,150,150,EntityNPC,100,100"/>
+			<property name="AITarget-2" value="SetNearestEntityAsTarget" data="class=EntityPlayer,50,80,EntityNPC,50,80"/>
 			<property name="AITarget-3" value="BlockingTargetTask"/>
 
+			<property name="SightRange" value="100"/>
 			<property name="HandItem" value="meleeHandZombieclaus"/>
 			<property name="ExperienceGain" value="1200"/>
 			<property name="LootDropProb" value=".1"/>
