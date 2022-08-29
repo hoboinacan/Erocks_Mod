@@ -186,7 +186,7 @@
 		<!-- Stripper with fire bow attack -->
 		<entity_class name="zombieFireBowStripper" extends="zombieDarlene">
 			<property name="Tags" value="entity,zombie,walker"/>
-			<property name="Mesh" value="#Entities/Zombies?Zombies/zombieStandardCocktailWaitressHDRagdoll.prefab"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZCocktailWaitress.prefab"/>
 
 			<!-- Gameplay -->
 			<property name="HandItem" value="meleeHandFireArrow"/>
