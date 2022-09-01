@@ -1,18 +1,16 @@
 <configs>
-
-<append xpath="/recipes">
-	<recipe name="solarbank" count="1" craft_time="600" craft_area="workbench" tags="perkAdvancedEngineering,learnable">
-		<ingredient name="resourceForgedIron" count="400" />
-		<ingredient name="resourceElectricParts" count="50" />
-		<ingredient name="resourceScrapPolymers" count="100" />
-		<ingredient name="resourceDuctTape" count="20" />
-	</recipe>
-	<recipe name="solarCell" count="1" craft_time="600" craft_area="workbench" tags="perkAdvancedEngineering,learnable">
-		<ingredient name="resourceForgedSteel" count="200" />
-		<ingredient name="resourceElectricParts" count="50" />
-		<ingredient name="resourceScrapPolymers" count="100" />
-		<ingredient name="resourceDuctTape" count="20" />
-	</recipe>
-</append>
-
+	<append xpath="/recipes">
+		<recipe name="solarbank" count="1" craft_time="600" craft_area="workbench" tags="perkAdvancedEngineering,learnable">
+			<ingredient name="resourceForgedIron" count="400" />
+			<ingredient name="resourceElectricParts" count="50" />
+			<ingredient name="resourceScrapPolymers" count="100" />
+			<ingredient name="resourceDuctTape" count="20" />
+		</recipe>
+		<recipe name="solarCell" count="1" craft_time="600" craft_area="workbench" tags="perkAdvancedEngineering,learnable">
+			<ingredient name="resourceForgedSteel" count="200" />
+			<ingredient name="resourceElectricParts" count="50" />
+			<ingredient name="resourceScrapPolymers" count="100" />
+			<ingredient name="resourceDuctTape" count="20" />
+		</recipe>
+	</append>
 </configs>

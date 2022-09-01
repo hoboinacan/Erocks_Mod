@@ -1,6 +1,38 @@
 <configs>
+	<!-- Adding zombie arrow ammo type to compound bow -->
+	<append xpath="/items/item[@name='gunBowT3CompoundBow']/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoProjectileFireArrow</append>
+	
+	<!-- My new player items -->
+	<setattribute xpath="/items/item[@name='solarCell']" name="UnlockedBy">perkAdvancedEngineering,solarCellSchematic</setattribute>
+	
 	<append xpath="/items">
-
+		<!-- solar bank -->
+		<item name="solarbankSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="solarbank"/>
+			<property name="Unlocks" value="solarbank"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="solarbank" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		
+		<!-- solar cell -->
+		<item name="solarCellSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="solarCell"/>
+			<property name="Unlocks" value="solarCell"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="solarCell" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+	</append>
+	
+	<!-- My new zombie items -->
+	<append xpath="/items">
 		<!-- Weapon set for electric cone attack -->
 		<item name="meleeHandZombieElectricCone">
 			<property name="Extends" value="meleeHandZombieCopFeral"/>
@@ -322,27 +354,47 @@
 
 		<!-- Ammo for fire arrow -->
 		<item name="ammoProjectileFireArrow">
+			<property name="Extends" value="ammoArrowSteelAP"/>
+			<property name="CustomIcon" value="ammoArrowFlaming"/>
+			<property name="CustomIconTint" value="FF3D13"/>
+			<property name="Tags" value="ammo,ranged"/>
+			<property name="DisplayType" value="ammoArrowFlaming"/>
 			<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/WoodenBow/flamingArrowPrefab.prefab"/>
-			<property name="Material" value="Morganic"/>
-			<property name="CreativeMode" value="None"/>
+			<property name="HoldType" value="45"/>
+			<property name="HandMeshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="StickyOffset" value=".7"/>
 			<property name="Damage_type" value="Heat"/>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
 				<property name="ExplodeOnHit" value="false"/>
 				<property name="CollisionRadius" value=".5"/>
 				<property name="FlyTime" value="12"/>
-				<property name="Velocity" value="13"/>
+				<property name="Velocity" value="18"/>
 				<property name="LifeTime" value="15"/>
+				<!-- Damage bonus here applies to zombie attack -->
+				<property name="DamageEntity" value="20"/>
+				<property name="DamageBlock" value="100"/>
+				<property name="DamageBonus.earth" value="0"/>
+				<property name="DamageBonus.stone" value=".5"/>
+				<property name="DamageBonus.metal" value=".5"/>
+				<property name="DamageBonus.wood" value="2.5"/>
+				<property name="DamageBonus.cloth" value="2.5"/>
 			</property>
 			<effect_group name="ammoProjectileFireArrow" tiered="false">
-				<passive_effect name="EntityDamage" operation="base_set" value="10"/>
-				<passive_effect name="BlockDamage" operation="base_set" value="100"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value=".75" tags="earth,stone,cloth,metal"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value="2.5" tags="wood"/>
-
+				<!-- Damage bonus here applies to player attack -->
+				<passive_effect name="EntityDamage" operation="base_set" value="30" tags="perkArchery"/>
+				<passive_effect name="BlockDamage" operation="base_set" value="100" tags="perkArchery"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,metal"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="2.5" tags="wood,cloth"/>
+				<passive_effect name="ProjectileVelocity" operation="base_set" value="18" tags="perkArchery"/>
+				
 				<triggered_effect trigger="onProjectileImpact" action="ModifyCVar" target="other" cvar="$buffBurningFlamingArrowDuration" operation="set" value="10" />
 				<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="other" buff="buffBurningFlamingArrow"/>
-
+				
 				<display_value name="dEntityDamageFire" value="120"/>
 				<display_value name="dDuration" value="14"/>
 			</effect_group>
@@ -357,13 +409,16 @@
 				<property name="Buff" value="buffFreezingElement"/>
 			</property>
 			<property class="Action1"> <!-- UseAction -->
+				<property name="Delay" value=".2"/>
+				<property name="Range" value="150"/>
+				<property name="Infinite_ammo" value="true"/>
 				<property name="Magazine_items" value="ammoProjectileCandyCane"/>
 				<property name="Sound_warning" value=""/>
-				<property name="Sound_start" value=""/>
+				<property name="Sound_start" value="swoosh"/>
 				<property name="Sound_repeat" value=""/>
 				<property name="Sound_end" value=""/>
 				<property name="Sound_empty" value=""/>
-				<property name="Sound_reload" value=""/>
+				<property name="Sound_reload" value="metalstaborganic"/>
 			</property>
 			<effect_group name="meleeHandZombieclaus" tiered="false">
 				<passive_effect name="DamageFalloffRange" operation="base_set" value="150"/>
@@ -385,19 +440,19 @@
 			<property name="Damage_type" value="Slashing"/>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
-				<property name="DamageEntity" value="5"/>
-				<property name="DamageBlock" value="200"/>
 				<property name="ExplodeOnHit" value="false"/>
-				<property name="Explosion.ParticleIndex" value="0"/>
+				<property name="Explosion.ParticleIndex" value="0"/> <!-- remove explosion effect -->
 				<property name="CollisionRadius" value=".5"/>
 				<property name="FlyTime" value="12"/>
 				<property name="Velocity" value="10"/>
 				<property name="LifeTime" value="15"/>
 				<property name="Buff" value="buffFreezingZombie"/>
+				<!-- Damage bonus here applies to zombie attack -->
+				<property name="DamageEntity" value="5"/>
+				<property name="DamageBlock" value="200"/>
+				<property name="DamageBonus.earth" value=".2"/>
 			</property>
 			<effect_group name="ammoProjectileCandyCane" tiered="false">
-				<passive_effect name="DamageModifier" operation="perc_set" value="1" tags="cloth,metal,wood,organic"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value=".25" tags="earth,stone"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffFreezingZombie"/>
 			</effect_group>
 		</item>

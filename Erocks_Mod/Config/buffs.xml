@@ -29,7 +29,7 @@
 		<!-- hand flaming bow -->
 		<buff name="FireBowDeco" hidden="true">
 			<effect_group>
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Other/Items?Weapons/Ranged/Bows/advancedBow/advancedCompoundBow/advancedCompoundBowPrefab.prefab" parent_transform="LeftHand" local_offset="0,0,0" local_rotation="0,0,0"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="#Other/Items?Weapons/Ranged/Bows/advancedBow/advancedCompoundBow/advancedCompoundBowPrefab.prefab" parent_transform="LeftHand" local_offset="0,0,0" local_rotation="0,-90,0"/>
 				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="LeftHand"/>
 			</effect_group>
 		</buff>
