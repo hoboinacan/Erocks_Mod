@@ -1,0 +1,11 @@
+<configs>
+	<!-- Adding solar bank schematic to same loot group as other generators -->
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsElectrical']">
+		<item name="solarbankSchematic"/>
+	</append>
+	
+	<!-- Adding solar cell schematic to same loot group as drone -->
+	<append xpath="/lootcontainers/lootgroup[@name='groupBotSchematics']">
+		<item name="solarCellSchematic" loot_prob_template="low"/>
+	</append>
+</configs>
