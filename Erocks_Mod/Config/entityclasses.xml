@@ -54,12 +54,12 @@
 
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="40"/> <!-- animalWolf -->
-			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="15"/>
+			<drop event="Harvest" name="resourceElectricPelt" tag="butcherHarvest" count="1"/>
 			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
 			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="15"/>
 			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
 			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
-			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceElectricPelt" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>
 
@@ -74,12 +74,12 @@
 			
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="40"/> <!-- animalWolf -->
-			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="15"/>
+			<drop event="Harvest" name="resourceFirePelt" tag="butcherHarvest" count="1"/>
 			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
 			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="15"/>
 			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
 			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
-			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="resourceFirePelt" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>
 
@@ -264,7 +264,8 @@
 			<property name="HandItem" value="meleeHandZombieclaus"/>
 			<property name="ExperienceGain" value="1200"/>
 			<property name="LootDropProb" value=".1"/>
-
+			<property name="LootDropEntityClass" value="EntityLootContainerZombieclaus"/>
+			
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/> <!-- this triggers the special harvesting animation like on the knife -->
 			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="30"/> <!-- animalStag -->
 			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="9"/>
@@ -283,6 +284,19 @@
 
 			<property name="NavObject" value="animaltracking_stag" />
 		</entity_class>
-
+		
+		<!-- Loot bag for Zombieclaus -->
+		<entity_class name="EntityLootContainerZombieclaus">
+			<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="#Entities/LootContainers?zpackBluePrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackZombieclaus"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
 	</append>
 </configs>

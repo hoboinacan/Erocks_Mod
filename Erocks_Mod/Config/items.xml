@@ -34,6 +34,56 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
 			</effect_group>
 		</item>
+		
+		<!-- Elemental Wolf pelts -->
+		<item name="resourceFirePelt">
+			<property name="CustomIcon" value="resourceLeather"/>
+			<property name="CustomIconTint" value="128,0,0" />
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourceLeather"/>
+			<property name="Weight" value="5"/>
+			<property name="Stacknumber" value="20"/>
+			<property name="FuelValue" value="15"/>
+			<property name="EconomicValue" value="750"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="20"/>
+		</item>
+		<item name="resourceElectricPelt">
+			<property name="CustomIcon" value="resourceLeather"/>
+			<property name="CustomIconTint" value="0,0,128" />
+			<property name="HoldType" value="45"/>
+			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MresourceLeather"/>
+			<property name="Weight" value="5"/>
+			<property name="Stacknumber" value="20"/>
+			<property name="FuelValue" value="15"/>
+			<property name="EconomicValue" value="750"/>
+			<property name="Group" value="Resources"/>
+			<property name="CraftingIngredientTime" value="20"/>
+		</item>
+		
+		<!-- Kill challenges -->
+		<item name="qc_killZombieclaus">
+			<property name="Extends" value="challengeQuestMaster"/>
+			<property name="EconomicValue" value="150"/>	
+			<property name="DescriptionKey" value="challenge_KillZombieclaus_offer"/>	
+			<property name="CustomIconTint" value="128,0,0" />
+			<property class="Action0">
+				<property name="QuestGiven" value="challenge_KillZombieclaus"/>
+			</property>
+		</item>
+		<item name="qc_killElementalWolves">
+			<property name="Extends" value="challengeQuestMaster"/>
+			<property name="EconomicValue" value="150"/>	
+			<property name="DescriptionKey" value="challenge_KillElementalWolves_offer"/>	
+			<property name="CustomIconTint" value="147,66,245" />	
+			<property class="Action0">
+				<property name="QuestGiven" value="challenge_KillElementalWolves"/>
+			</property>
+		</item>
 	</append>
 	
 	<!-- My new zombie items -->
