@@ -1,3 +1,6 @@
 <configs>
-	<setattribute xpath="/blocks/block[@name='solarbank']" name="UnlockedBy">perkAdvancedEngineering,solarbankSchematic</setattribute>
+	<!-- Making solarbank learnable -->
+	<append xpath="/blocks/block[@name='solarbank']">
+		<property name="UnlockedBy" value="perkAdvancedEngineering,solarbankSchematic"/>
+	</append>
 </configs>

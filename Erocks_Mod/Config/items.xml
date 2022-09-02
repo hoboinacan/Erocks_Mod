@@ -2,9 +2,14 @@
 	<!-- Adding zombie arrow ammo type to compound bow -->
 	<append xpath="/items/item[@name='gunBowT3CompoundBow']/property[@class='Action0']/property[@name='Magazine_items']/@value">,ammoProjectileFireArrow</append>
 	
-	<!-- My new player items -->
-	<setattribute xpath="/items/item[@name='solarCell']" name="UnlockedBy">perkAdvancedEngineering,solarCellSchematic</setattribute>
+	<!-- Making solarCell learnable and sellable -->
+	<setattribute xpath="/items/item[@name='solarCell']/property[@name='SellableToTrader']" name="value">true</setattribute>
+	<append xpath="/items/item[@name='solarCell']">
+		<property name="Tags" value="learnable,perkAdvancedEngineering"/>
+		<property name="UnlockedBy" value="perkAdvancedEngineering,solarCellSchematic"/>
+	</append>
 	
+	<!-- My new player items -->
 	<append xpath="/items">
 		<!-- solar bank -->
 		<item name="solarbankSchematic">
