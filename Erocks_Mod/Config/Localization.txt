@@ -5,22 +5,34 @@ buffIsFreezingName,buffs,Buff,,,Freezing
 buffIsFreezingTooltip,buffs,Buff,,,You are freezing. Use coffee to warm yourself.
 FreezingTip_title,Journal Tip,,,,Freezing
 FreezingTip,Journal Tip,,,,"Some weapons, zombies, or parts of the environment can freeze you. To warm yourself you can drink a warm coffee."
-ammoProjectileFireArrow,Items,Ammo,,,Flaming Arrow v2 (Ammo)
-ammoProjectileFireArrowDesc,Items,Ammo,,,A flaming arrow that was recovered from a special zombie. Usable in the compound bow.
+ammoProjectileFireArrow,items,Ammo,,,Flaming Arrow v2 (Ammo)
+ammoProjectileFireArrowDesc,items,Ammo,,,A flaming arrow that was recovered from a special zombie. Usable in the compound bow.
 EntityLootContainerZombieclaus,entityclasses,Entity Info,,,Zombieclaus Loot
 solarbankSchematic,blocks,Electricity,,,Solar Bank Schematic
-solarCellSchematic,Items,Electricity,,,Solar Cell Schematic
-resourceFirePelt,Items,Item,,,Fire Wolf Pelt
-resourceFirePeltDesc,Items,Item,,,A pelt from a Fire Wolf. Maybe someone will buy this.
-resourceElectricPelt,Items,Item,,,Electric Wolf Pelt
-resourceElectricPeltDesc,Items,Item,,,A pelt from an Electric Wolf. Maybe someone will buy this.
-qc_killZombieclaus,Items,Quest - Kill Zombieclaus,,,Kill Zombieclaus Challenge
+solarCellSchematic,items,Electricity,,,Solar Cell Schematic
+resourceFirePelt,items,Item,,,Fire Wolf Pelt
+resourceFirePeltDesc,items,Item,,,A pelt from a Fire Wolf. Maybe someone will buy this.
+resourceElectricPelt,items,Item,,,Electric Wolf Pelt
+resourceElectricPeltDesc,items,Item,,,A pelt from an Electric Wolf. Maybe someone will buy this.
+foodDragonEgg,items,Food,,,Dragon Egg
+foodDragonEggDesc,items,Food,,,An egg collected from a mutated dragon.
+foodDragonMeat,items,Food,,,Dragon Meat
+foodDragonMeatDesc,items,Food,,,Meat harvested from a mutated dragon.
+foodDragonBaconAndEggsSchematic,items,Food,,,Dragon Bacon and Eggs Schematic
+foodDragonBaconAndEggs,items,Food,,,Dragon Bacon and Eggs
+foodDragonBaconAndEggsDesc,items,Food,,,You thought bacon and eggs were good? Wait until you try them made from REAL dragon flesh!
+qc_killZombieclaus,items,Quest - Kill Zombieclaus,,,Kill Zombieclaus Challenge
 challenge_KillZombieclaus,Quest,Challenge Info,,,Kill Zombieclaus
 challenge_KillZombieclaus_offer,Quest,Challenge Info,,,"A new type of undead has been seen around the marked area. I like to call them Zombieclaus.\n\nGo thin their numbers for me. I'll make it worth your time."
 challenge_KillZombieclaus_subtitle,Quest,Challenge Info,,,Kill some zombieclaus
 challenge_KillZombieclaus_completion,Quest,Quest Info,,,"Holy Shit! You really managed to take them sum bitches out. Here's what I owe ya."
-qc_killElementalWolves,Items,Quest - Kill Elemental Wolves,,,Kill Elemental Wolves Challenge
+qc_killElementalWolves,items,Quest - Kill Elemental Wolves,,,Kill Elemental Wolves Challenge
 challenge_KillElementalWolves,Quest,Challenge Info,,,Kill Elemental Wolves
 challenge_KillElementalWolves_offer,Quest,Challenge Info,,,"I've noticed a pack of mutated wolves around the marked area.\n\nI'll make it worth your time if you bring me one of each type of pelt."
 challenge_KillElementalWolves_subtitle,Quest,Challenge Info,,,Kill some Elemental Wolves
-quest_KillElementalWolves_completion,Quest,Quest Info,,,"You just keep on surprising me. Here's what I owe ya for those pelts."
+challenge_KillElementalWolves_completion,Quest,Quest Info,,,"You just keep on surprising me. Here's what I owe ya for those pelts."
+qc_killDragon,items,Quest - Kill a Dragon,,,Kill A Dragon Challenge
+challenge_KillDragon,Quest,Challenge Info,,,Kill A Dragon
+challenge_KillDragon_offer,Quest,Challenge Info,,,"A monstrous beast has been terrorizing the area. This thing is more dangerous than the undead and must be stopped.\n\nIf you're foolish enough to take it on make sure you go prepared."
+challenge_KillDragon_subtitle,Quest,Challenge Info,,,Kill A Dragon
+challenge_KillDragon_completion,Quest,Quest Info,,,"What! How? You should be dead. Here, take something as a reward."

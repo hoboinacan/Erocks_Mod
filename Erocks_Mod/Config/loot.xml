@@ -1,6 +1,6 @@
 <configs>
-	<!-- Adding Zombieclaus loot table and bag -->
 	<append xpath="/lootcontainers">
+		<!-- Adding Zombieclaus loot table and bag -->
 		<lootgroup name="groupZpackZombieclaus" count="all">
 			<item name="drinkJarCoffee" count="1,3"/>
 			<item name="meleeWpnBladeT1CandyKnife" count="1"/>
@@ -10,6 +10,16 @@
 		</lootgroup>
 		<lootcontainer id="842" name="zPackZombieclaus" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
 			<item group="groupZpackZombieclaus"/>
+		</lootcontainer>
+		
+		<!-- Adding Dragon loot table and bag -->
+		<lootgroup name="groupZpackDragon" count="all">
+			<item name="casinoCoin" count="100,2000"/>
+			<item name="foodDragonEgg" count="1,2" loot_prob_template="med" force_prob="true"/>
+			<item group="groupZpackBoss" loot_prob_template="med" force_prob="true"/>
+		</lootgroup>
+		<lootcontainer id="843" name="zPackDragon" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
+			<item group="groupZpackDragon"/>
 		</lootcontainer>
 	</append>
 	
@@ -27,5 +37,11 @@
 	<append xpath="/lootcontainers/lootgroup[@name='groupTreasureMaps']">
 		<item name="qc_killZombieclaus"/>
 		<item name="qc_killElementalWolves"/>
+		<item name="qc_killDragon"/>
+	</append>
+	
+	<!-- Adding Dragon Bacon and Eggs Schematic to same loot group as T2 food schematics -->
+	<append xpath="/lootcontainers/lootgroup[@name='farmingCookingRecipesT2']">
+		<item name="foodDragonBaconAndEggsSchematic" loot_prob_template="low"/>
 	</append>
 </configs>

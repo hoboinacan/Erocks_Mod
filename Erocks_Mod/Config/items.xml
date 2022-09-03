@@ -11,7 +11,7 @@
 	
 	<!-- My new player items -->
 	<append xpath="/items">
-		<!-- solar bank -->
+		<!-- schematics -->
 		<item name="solarbankSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
 			<property name="CreativeMode" value="Player"/>
@@ -23,7 +23,6 @@
 			</effect_group>
 		</item>
 		
-		<!-- solar cell -->
 		<item name="solarCellSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
 			<property name="CreativeMode" value="Player"/>
@@ -31,6 +30,18 @@
 			<property name="Unlocks" value="solarCell"/>
 			<effect_group tiered="false">
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="solarCell" operation="set" value="1"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
+			</effect_group>
+		</item>
+		
+		<item name="foodDragonBaconAndEggsSchematic">
+			<property name="Extends" value="schematicNoQualityMaster"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="foodBaconAndEggs"/>
+			<property name="CustomIconTint" value="80,143,0"/>
+			<property name="Unlocks" value="foodDragonBaconAndEggs"/>
+			<effect_group tiered="false">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodDragonBaconAndEggs" operation="set" value="1"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
 			</effect_group>
 		</item>
@@ -50,6 +61,7 @@
 			<property name="Group" value="Resources"/>
 			<property name="CraftingIngredientTime" value="20"/>
 		</item>
+		
 		<item name="resourceElectricPelt">
 			<property name="CustomIcon" value="resourceLeather"/>
 			<property name="CustomIconTint" value="0,0,128" />
@@ -65,6 +77,129 @@
 			<property name="CraftingIngredientTime" value="20"/>
 		</item>
 		
+		<!-- Dragon Egg -->
+		<item name="foodDragonEgg">
+			<property name="CustomIcon" value="foodEgg"/>
+			<property name="CustomIconTint" value="69,69,69" />
+			<property name="Tags" value="food"/>
+			<property name="HoldType" value="31"/>
+			<property name="DisplayType" value="foodRaw"/>
+			<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Stacknumber" value="1"/>
+			<property name="EconomicValue" value="3000"/>
+			<property name="SellableToTrader" value="true"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="5.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_eating"/>
+			</property>
+			<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+
+			<effect_group tiered="false" name="Food Tier 0">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="25"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="20"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="20"/><display_value name="dDysenteryRisk" value=".2"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchFood">
+						<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+		
+		<!-- Dragon Meat -->
+		<item name="foodDragonMeat">
+			<property name="CustomIcon" value="foodRawMeat"/>
+			<property name="CustomIconTint" value="80,143,0"/>
+			<property name="Tags" value="food"/>
+			<property name="HoldType" value="31"/>
+			<property name="DisplayType" value="foodRaw"/>
+			<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="MfoodRawMeat"/>
+			<property name="Stacknumber" value="50"/>
+			<property name="EconomicBundleSize" value="1"/>
+			<property name="EconomicValue" value="100"/>
+			<property name="CraftingIngredientTime" value="10"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="2.0"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_eating"/>
+			</property>
+			<property name="Smell" value="ExLargeSmell"/>
+			<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+
+			<effect_group tiered="false" name="Food Tier 0">
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="20"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyStats" stat="Health" operation="add" value="0"/><display_value name="foodHealthAmount" value="0"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="set" value="20"/><display_value name="dDysenteryRisk" value=".2"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".DiseaseRoll" operation="add" value="@$MetabolismResist"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDysenteryCatchFood">
+					<requirement name="RandomRoll" seed_type="Random" min_max="1,100" operation="LTE" value="@.DiseaseRoll"/>
+				</triggered_effect>
+			</effect_group>
+		</item>
+		
+		<!-- Dragon Bacon and Eggs -->
+		<item name="foodDragonBaconAndEggs">
+			<property name="CustomIcon" value="foodBaconAndEggs"/>
+			<property name="CustomIconTint" value="80,143,0"/>
+			<property name="Tags" value="food"/>
+			<property name="HoldType" value="31"/>
+			<property name="DisplayType" value="food"/>
+			<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Material" value="Morganic"/>
+			<property name="Stacknumber" value="10"/> <!-- STK food -->
+			<property name="EconomicValue" value="1000"/>
+			<property name="UnlockedBy" value="foodDragonBaconAndEggsSchematic"/>
+			<property class="Action0">
+				<property name="Class" value="Eat"/>
+				<property name="Delay" value="5"/>
+				<property name="Use_time" value="..."/>
+				<property name="Sound_start" value="player_eating"/>
+			</property>
+			<property name="Smell" value="ExLargeSmell"/>
+			<property name="Group" value="Food/Cooking,CFFood/Cooking"/>
+
+			<effect_group tiered="false" name="Food Tier 4">
+				<display_value name="dDuration" value="300"/>
+				<display_value name="dMaxHealthBonus" value="10"/>
+				<display_value name="dBuffResistance" value=".5"/>
+				<display_value name="dNaturalCritHealing" value="2"/>
+				<display_value name="dFallDamage" value="-1"/>
+				<display_value name="dEntityDamage" value=".5"/>
+
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="200"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="150"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="100"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
+				
+				<!-- Healthbar buff -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="add" value="303"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="set" value="903">
+					<requirement name="CVarCompare" cvar="$buffDrugHealthBarDuration" operation="GT" value="903"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHealthBar"/>
+				
+				<!-- Oh Shitz Drops buff -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugOhShitzDropsDuration" operation="add" value="303"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugOhShitzDropsDuration" operation="set" value="903">
+					<requirement name="CVarCompare" cvar="$buffDrugOhShitzDropsDuration" operation="GT" value="903"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugOhShitzDrops"/>
+				
+				<!-- Skull Crushers buff -->
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="add" value="303"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="set" value="903">
+					<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration" operation="GT" value="903"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugSkullCrushers"/>
+			</effect_group>
+		</item>
+		
 		<!-- Kill challenges -->
 		<item name="qc_killZombieclaus">
 			<property name="Extends" value="challengeQuestMaster"/>
@@ -75,6 +210,7 @@
 				<property name="QuestGiven" value="challenge_KillZombieclaus"/>
 			</property>
 		</item>
+		
 		<item name="qc_killElementalWolves">
 			<property name="Extends" value="challengeQuestMaster"/>
 			<property name="EconomicValue" value="150"/>	
@@ -82,6 +218,16 @@
 			<property name="CustomIconTint" value="147,66,245" />	
 			<property class="Action0">
 				<property name="QuestGiven" value="challenge_KillElementalWolves"/>
+			</property>
+		</item>
+		
+		<item name="qc_killDragon">
+			<property name="Extends" value="challengeQuestMaster"/>
+			<property name="EconomicValue" value="150"/>	
+			<property name="DescriptionKey" value="challenge_KillDragon_offer"/>	
+			<property name="CustomIconTint" value="69,69,69" />	
+			<property class="Action0">
+				<property name="QuestGiven" value="challenge_KillDragon"/>
 			</property>
 		</item>
 	</append>

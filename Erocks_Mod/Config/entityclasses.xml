@@ -88,7 +88,7 @@
 			<property name="SizeScale" value="4"/>
 			<property name="Tags" value="entity,animal,hostile,vulture,boss"/>
 			<property name="Class" value="EntityVulture"/>
-			<property name="EntityType" value="Animal"/>
+			<property name="EntityType" value="Zombie"/>
 			<property name="AvatarController" value="AvatarAnimalController"/>
 			<property name="ModelType" value="Standard"/>
 			<property name="HasRagdoll" value="true"/>
@@ -113,7 +113,7 @@
 
 			<property name="ExperienceGain" value="5000"/>
 			<property name="LootDropProb" value=".75"/>
-			<property name="LootDropEntityClass" value="EntityLootContainerBoss"/>
+			<property name="LootDropEntityClass" value="EntityLootContainerDragon"/>
 			
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="8000"/>
@@ -125,12 +125,12 @@
 			</effect_group>
 
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
-			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="100"/> <!-- animalWolf -->
-			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="30"/>
-			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="20"/>
-			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="30"/>
-			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="10"/>
-			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="foodDragonMeat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="10"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="10"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
+			<drop event="Harvest" name="foodDragonMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>
@@ -140,7 +140,7 @@
 			<property name="SizeScale" value="4"/>
 			<property name="Tags" value="entity,animal,hostile,vulture,boss"/>
 			<property name="Class" value="EntityVulture"/>
-			<property name="EntityType" value="Animal"/>
+			<property name="EntityType" value="Zombie"/>
 			<property name="AvatarController" value="AvatarAnimalController"/>
 			<property name="ModelType" value="Standard"/>
 			<property name="HasRagdoll" value="true"/>
@@ -165,7 +165,7 @@
 
 			<property name="ExperienceGain" value="5000"/>
 			<property name="LootDropProb" value=".75"/>
-			<property name="LootDropEntityClass" value="EntityLootContainerBoss"/>
+			<property name="LootDropEntityClass" value="EntityLootContainerDragon"/>
 			
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="8000"/>
@@ -177,12 +177,12 @@
 			</effect_group>
 
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
-			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="100"/> <!-- animalWolf -->
-			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="30"/>
-			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="20"/>
-			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="30"/>
-			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="10"/>
-			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
+			<drop event="Harvest" name="foodDragonMeat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceLeather" tag="butcherHarvest" count="10"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="10"/>
+			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
+			<drop event="Harvest" name="foodDragonMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceLeather" count="1" tag="WasteTreasuresCompleteHarvest"/>
 			<drop event="Harvest" name="resourceBone" count="1" tag="WasteTreasuresCompleteHarvest"/>
 		</entity_class>
@@ -283,6 +283,20 @@
 			</effect_group>
 
 			<property name="NavObject" value="animaltracking_stag" />
+		</entity_class>
+		
+		<!-- Loot bag for Dragons -->
+		<entity_class name="EntityLootContainerDragon">
+			<property name="HideInSpawnMenu" value="true"/>
+			<property name="Mesh" value="#Entities/LootContainers?zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackDragon"/>
+			<property name="Faction" value="none"/>
 		</entity_class>
 		
 		<!-- Loot bag for Zombieclaus -->

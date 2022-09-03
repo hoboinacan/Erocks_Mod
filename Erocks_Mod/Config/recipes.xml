@@ -1,11 +1,17 @@
 <configs>
 	<append xpath="/recipes">
+		<recipe name="foodDragonBaconAndEggs" count="1" craft_area="campfire" craft_tool="toolCookingPot" tags="learnable">
+			<ingredient name="foodDragonMeat" count="5"/>
+			<ingredient name="foodDragonEgg" count="2"/>
+		</recipe>
+		
 		<recipe name="solarbank" count="1" craft_area="workbench" tags="learnable,workbenchCrafting">
 			<ingredient name="resourceForgedIron" count="400" />
 			<ingredient name="resourceElectricParts" count="50" />
 			<ingredient name="resourceScrapPolymers" count="100" />
 			<ingredient name="resourceDuctTape" count="20" />
 		</recipe>
+		
 		<recipe name="solarCell" count="1" craft_area="workbench" tags="learnable,perkAdvancedEngineering,workbenchCrafting">
 			<ingredient name="resourceForgedSteel" count="200" />
 			<ingredient name="resourceElectricParts" count="50" />
