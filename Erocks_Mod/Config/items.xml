@@ -289,11 +289,21 @@
 				<property name="Velocity" value="10"/>
 				<property name="LifeTime" value="5"/>
 				<property name="Buff" value="buffShocked"/>
+				<!-- Damage bonus here applies to zombie attack -->
+				<property name="DamageEntity" value="15"/>
+				<property name="DamageBlock" value="50"/>
+				<property name="DamageBonus.earth" value=".1"/>
+				<property name="DamageBonus.stone" value=".5"/>
+				<property name="DamageBonus.metal" value="2"/>
+				<property name="DamageBonus.wood" value=".5"/>
+				<property name="DamageBonus.cloth" value=".5"/>
 			</property>
 			<effect_group name="ammoProjectileZombieElectricCone" tiered="false">
+				<!-- Damage bonus here applies to player attack -->
 				<passive_effect name="EntityDamage" operation="base_set" value="15"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="50"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="earth,stone,cloth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,cloth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="metal"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffShocked"/>
 			</effect_group>
@@ -354,12 +364,22 @@
 				<property name="Velocity" value="10"/>
 				<property name="LifeTime" value="5"/>
 				<property name="Buff" value="buffBurningFlamingArrow"/>
+				<!-- Damage bonus here applies to zombie attack -->
+				<property name="DamageEntity" value="15"/>
+				<property name="DamageBlock" value="50"/>
+				<property name="DamageBonus.earth" value=".1"/>
+				<property name="DamageBonus.stone" value=".5"/>
+				<property name="DamageBonus.metal" value=".5"/>
+				<property name="DamageBonus.wood" value="2"/>
+				<property name="DamageBonus.cloth" value="2"/>
 			</property>
 			<effect_group name="ammoProjectileZombieFireCone" tiered="false">
+				<!-- Damage bonus here applies to player attack -->
 				<passive_effect name="EntityDamage" operation="base_set" value="15"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="50"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="earth,stone,metal"/>
-				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="cloth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,metal"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="earth"/>
+				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="cloth,wood"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffBurningFlamingArrow"/>
 			</effect_group>
 		</item>

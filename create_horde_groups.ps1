@@ -19,12 +19,14 @@ $entityGroupNames = @(
 #gamestage settings
 $earlyGamestage = 20
 $midGamestage = 50
+$midlateGamestage = 150
 $lateGamestage = 99999
 
 #probability templates
-$rareProb = '.01'
-$lowProb = '.05'
-$medProb = '1'
+$veryRareProb = '0.01'
+$rareProb = '.05'
+$lowProb = '.1'
+$medProb = '.5'
 
 #entity templates inserted into entitygroups
 $earlyTemplate = (
@@ -35,13 +37,21 @@ $midTemplate = (
 	"`t`t<entity name=""animalWolfElectric"" prob=""$rareProb"" />",
 	"`t`t<entity name=""animalWolfFire"" prob=""$rareProb"" />"
 	)
-$lateTemplate = (
+$midlateTemplate = (
 	"`t`t<entity name=""zombieFireBowStripper"" prob=""$medProb"" />",
 	"`t`t<entity name=""animalWolfElectric"" prob=""$lowProb"" />",
 	"`t`t<entity name=""animalWolfFire"" prob=""$lowProb"" />",
+	"`t`t<entity name=""animalZombieElectricDragon"" prob=""$veryRareProb"" />",
+	"`t`t<entity name=""animalZombieFireDragon"" prob=""$veryRareProb"" />",
+	"`t`t<entity name=""zombieclaus"" prob=""$rareProb"" />"
+	)
+$lateTemplate = (
+	"`t`t<entity name=""zombieFireBowStripper"" />",
+	"`t`t<entity name=""animalWolfElectric"" prob=""$medProb"" />",
+	"`t`t<entity name=""animalWolfFire"" prob=""$medProb"" />",
 	"`t`t<entity name=""animalZombieElectricDragon"" prob=""$rareProb"" />",
 	"`t`t<entity name=""animalZombieFireDragon"" prob=""$rareProb"" />",
-	"`t`t<entity name=""zombieclaus"" prob=""$rareProb"" />"
+	"`t`t<entity name=""zombieclaus"" prob=""$lowProb"" />"
 	)
 
 $outputLines = @("`t<!-- BEGIN AUTO-GENERATED HORDE LIST APPENDS -->")
@@ -58,6 +68,8 @@ foreach ($line in $entityGroupsLines) {
 				$outputLines += $earlyTemplate
 			} elseif([int]$Matches[2] -lt $midGamestage) { #mid GS inserts
 				$outputLines += $midTemplate
+			} elseif([int]$Matches[2] -lt $midlateGamestage) { #midlate GS inserts
+				$outputLines += $midlateTemplate
 			} elseif([int]$Matches[2] -lt $lateGamestage) { #late GS inserts
 				$outputLines += $lateTemplate
 			}
