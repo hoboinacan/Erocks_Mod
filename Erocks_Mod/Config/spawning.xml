@@ -1,13 +1,24 @@
 <configs>
-	<!-- Add new spawn group for dragon lair biome -->
-	<!-- REMOVING FOR NOW UNTIL I CAN GET IT WORKING
+	<!-- Add new spawn group for dragons -->
 	<append xpath="/spawning">
+		<!--
 		<biome name="dragonLair">
 			<spawn maxcount="1" respawndelay="0.3" time="Day"	entitygroup="dragonLair" />
 			<spawn maxcount="2" respawndelay="0.1" time="Night" entitygroup="dragonLair" />
 			
 			<spawn maxcount="1" respawndelay="0.3" time="Any" entitygroup="EnemyAnimalsWasteland" spawnDeadChance="0" />
 		</biome>
+		-->
+		
+		<entityspawner name="Dragon_Nest_Spawn">
+			<day value="*">
+				<property name="EntityGroupName" value="dragonSpawns" />
+				<property name="Time" value="Any" />
+				<property name="DelayBetweenSpawns" value="1" />
+				<property name="TotalAlive" value="5" />
+				<property name="TotalPerWave" value="20" />
+				<property name="AttackPlayerAtOnce" value="true" />
+			</day>
+		</entityspawner>
 	</append>
-	-->
 </configs>

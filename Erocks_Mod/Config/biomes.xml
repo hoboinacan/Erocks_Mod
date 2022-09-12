@@ -1,5 +1,24 @@
 <configs>
 	<!-- Add new biome for dragon spawns -->
+	<append xpath="/worldgeneration/biomes/biome[@name='wasteland']">
+		<subbiome prob="0.3">
+			<layers>
+				<layer depth="2" blockname="terrSnow"/> <layer depth="2" blockname="terrDirt"/>
+				<layer depth="1" blockname="terrStone"> <resource blockname="terrGravel" prob="0.7830" rwgGenerationType="all"/> </layer>
+				<layer depth="*" blockname="terrStone">
+					<resource blockname="terrOreIron" prob="0.6500" rwgGenerationType="all"/>
+					<resource blockname="terrGravel" prob="0.7830" rwgGenerationType="all"/>
+				</layer>
+				<layer depth="3" blockname="terrBedrock"/>
+			</layers>
+			<decorations>
+				<decoration type="prefab" name="deco_iron_vein" checkresource="-7" onslopes="true" prob=".00657" rotatemax="3"/>
+				<decoration type="block" blockname="cntDragonnest" prob=".001" rotatemax="3"/>
+				<decoration type="block" blockname="treeSnowyGrassDiagonal" prob=".2"/>
+			</decorations>
+		</subbiome>
+	</append>
+
 	<!-- REMOVING FOR NOW UNTIL I CAN GET IT WORKING
 	<append xpath="/worldgeneration/biomes">
 		<biomemap id="20" name="dragonLair"/>

@@ -1,6 +1,13 @@
 <configs>
-	<!-- Create new dragonLair group -->
+	
 	<append xpath="/entitygroups">
+		<!-- Only Dragon Spawns -->
+		<entitygroup name="dragonSpawns">
+			<entity name="animalZombieFireDragon" />
+			<entity name="animalZombieElectricDragon" />
+		</entitygroup>
+		
+		<!-- Create new dragonLair group -->
 		<entitygroup name="dragonLair">
 			<!-- wasteland night enemies -->
 			<entity name="zombieMutatedFeral" prob="2"/>

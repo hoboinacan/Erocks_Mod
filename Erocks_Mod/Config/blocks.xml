@@ -3,4 +3,62 @@
 	<append xpath="/blocks/block[@name='solarbank']">
 		<property name="UnlockedBy" value="perkAdvancedEngineering,solarbankSchematic"/>
 	</append>
+	<append xpath="/blocks">
+		<block name="cntDragonnest">
+			<property name="CustomIcon" value="cntBirdnest"/>
+			<property name="CustomIconTint" value="80,143,0"/>
+			<property name="SizeScale" value="2.5"/> <!-- Doesn't work on blocks -->
+			<property name="Class" value="SpawnEntity"/>
+			<property name="SpawnClass" value="animalZombieElectricDragon,animalZombieFireDragon"/>
+			<property name="SpawnGroup" value="dragonSpawns"/>
+			<property name="DowngradeBlock" value="cntDragonnestBroken"/>
+			<!-- These dont seem to work
+			<property name="TickRate" value="750" />
+			<property name="SpawnArea" value="50" />
+			<property name="NumberToSpawn" value="5" />
+			<property name="MaxSpawned" value="5" />
+			<property name="CheckArea" value="200" />
+			-->
+			<property name="Material" value="Mwood_regular"/>
+			<property name="StabilitySupport" value="false"/> <!-- build restriction -->
+			<property name="Shape" value="Ext3dModel"/>
+			<property name="Texture" value="294"/>
+			<property name="Model" value="#Entities/LootContainers?birdnestPrefab.prefab"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="melee,bullet,arrow,rocket"/>
+			<property name="GndAlign" value="1"/>
+			<drop event="Harvest" name="foodDragonEgg" count="1" prob="0.1" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceFeather" count="3" prob="0.35" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceFeather" count="2" prob="0.6" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceYuccaFibers" count="2,8"/>
+			<property name="FilterTags" value="MC_building,SC_loot"/>
+			<property name="IndexName" value="quest_feather"/>
+		</block>
+		<block name="cntDragonnestBroken">
+			<property name="CustomIcon" value="cntBirdnest"/>
+			<property name="CustomIconTint" value="80,143,0"/>
+			<property name="Class" value="Loot"/>
+			<property name="LootList" value="zPackDragon"/>
+			<property name="Material" value="Mwood_regular"/>
+			<property name="StabilitySupport" value="false"/> <!-- build restriction -->
+			<property name="Shape" value="Ext3dModel"/>
+			<property name="Texture" value="294"/>
+			<property name="Model" value="#Entities/LootContainers?birdnestPrefab.prefab"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="ModelOffset" value="0,0,0"/>
+			<property name="OnlySimpleRotations" value="true"/>
+			<property name="IsTerrainDecoration" value="true"/>
+			<property name="Collide" value="melee,bullet,arrow,rocket"/>
+			<property name="GndAlign" value="1"/>
+			<drop event="Harvest" name="foodDragonEgg" count="1" prob="0.3" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceFeather" count="3" prob="0.35" tag="allHarvest"/>
+			<drop event="Harvest" name="resourceFeather" count="2" prob="0.6" tag="allHarvest"/>
+			<drop event="Destroy" name="resourceYuccaFibers" count="2,8"/>
+			<property name="FilterTags" value="MC_building,SC_loot"/>
+			<property name="IndexName" value="quest_feather"/>
+		</block>
+	</append>
 </configs>
