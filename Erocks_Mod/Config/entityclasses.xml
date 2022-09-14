@@ -43,7 +43,7 @@
 			<property name="JumpMaxDistance" value="3, 7"/>
 			
 			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="1000"/>
+				<passive_effect name="HealthMax" operation="base_set" value="700"/>
 				<!-- Removed permanent heal to use rad heal effect
 				<passive_effect name="HealthMax" operation="perc_add" value="1"/>
 				-->
@@ -201,7 +201,7 @@
 			<property name="SightRange" value="75"/>
 			
 			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="500"/>
+				<passive_effect name="HealthMax" operation="base_set" value="350"/>
 				<triggered_effect trigger="onSelfFirstSpawn" action="AddBuff" target="self" buff="FireBowDeco"/>
 				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="20"/>
 				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>

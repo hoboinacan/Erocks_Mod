@@ -305,7 +305,7 @@
 				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,cloth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="metal"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffShocked"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".66" tags="buffShocked"/>
 			</effect_group>
 		</item>
 
@@ -380,7 +380,7 @@
 				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,metal"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="cloth,wood"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffBurningFlamingArrow"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".66" tags="buffBurningFlamingArrow"/>
 			</effect_group>
 		</item>
 
@@ -596,7 +596,7 @@
 				<property name="Velocity" value="18"/>
 				<property name="LifeTime" value="15"/>
 				<!-- Damage bonus here applies to zombie attack -->
-				<property name="DamageEntity" value="20"/>
+				<property name="DamageEntity" value="15"/>
 				<property name="DamageBlock" value="100"/>
 				<property name="DamageBonus.earth" value="0"/>
 				<property name="DamageBonus.stone" value=".5"/>
@@ -606,14 +606,15 @@
 			</property>
 			<effect_group name="ammoProjectileFireArrow" tiered="false">
 				<!-- Damage bonus here applies to player attack -->
-				<passive_effect name="EntityDamage" operation="base_set" value="30" tags="perkArchery"/>
+				<passive_effect name="EntityDamage" operation="base_set" value="15" tags="perkArchery"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="100" tags="perkArchery"/>
+				<passive_effect name="TargetArmor" operation="perc_add" value="-.5"/><display_value name="dTargetArmor" value="-.5"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,metal"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2.5" tags="wood,cloth"/>
 				<passive_effect name="ProjectileVelocity" operation="base_set" value="18" tags="perkArchery"/>
 				
-				<triggered_effect trigger="onProjectileImpact" action="ModifyCVar" target="other" cvar="$buffBurningFlamingArrowDuration" operation="set" value="10" />
+				<triggered_effect trigger="onProjectileImpact" action="ModifyCVar" target="other" cvar="$buffBurningFlamingArrowDuration" operation="set" value="3" />
 				<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="other" buff="buffBurningFlamingArrow"/>
 				
 				<display_value name="dEntityDamageFire" value="120"/>
