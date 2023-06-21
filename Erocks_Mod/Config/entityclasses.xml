@@ -1,20 +1,22 @@
 <configs>
 	<append xpath="/entity_classes">
 		<!-- Wolf with an electric cone attack -->
-		<entity_class name="animalWolfElectric" extends="animalTemplateHostile">
+		<entity_class name="animalWolfElectric" extends="animalWolf">
 			<property name="SizeScale" value="1.5"/>
 			<property name="Tags" value="entity,animal,hostile,wolf,feral,radiated"/>
+			<!--
 			<property name="MapIcon" value="ui_game_symbol_tracking_wolf"/>
 			<property name="TrackerIcon" value="ui_game_symbol_tracking_wolf"/>
 			<property name="AvatarController" value="AvatarAnimalController"/>
 			<property name="ModelType" value="Standard"/>
 			<property name="HasRagdoll" value="true"/>
-			<property name="HasDeathAnim" value="true"/>
-			<property name="RootMotion" value="true"/>
-			<property name="RagdollOnDeathChance" value=".5"/>
 			<property name="PhysicsBody" value="wolf"/>
 			<property name="Mass" value="100"/>
 			<property name="Prefab" value="/Entities/Animals/Wolf/animalStandardWolfRagdoll"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="RootMotion" value="true"/>
+			<property name="RagdollOnDeathChance" value=".5"/>
+			-->
 			<property name="Faction" value="undead"/>
 			<property name="ExperienceGain" value="1200"/>
 
@@ -31,6 +33,7 @@
 
 			<property name="DismemberMultiplierHead" value=".4"/>
 			<property name="SightRange" value="50"/>
+			<!--
 			<property name="SoundRandom" value="wolfroam"/>
 			<property name="SoundAlert" value="wolfalert"/>
 			<property name="SoundHurt" value="wolfpain"/>
@@ -38,7 +41,8 @@
 			<property name="SoundAttack" value="wolfattack"/>
 			<property name="SoundSense" value="wolfsense"/>
 			<property name="SoundGiveUp" value="wolfgiveup"/>
-
+			-->
+			
 			<property name="HandItem" value="meleeHandZombieElectricCone"/>
 			<property name="JumpMaxDistance" value="3, 7"/>
 			
@@ -51,11 +55,11 @@
 				<triggered_effect trigger="onOtherDamagedSelf" action="ModifyCVar" target="self" cvar="RadiatedRegenAmount" operation="set" value="50"/>
 				<triggered_effect trigger="onOtherDamagedSelf" action="AddBuff" target="self" buff="buffRadiatedRegen"/>
 			</effect_group>
-
+			
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
-			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="40"/> <!-- animalWolf -->
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="25"/> <!-- animalWolf -->
 			<drop event="Harvest" name="resourceElectricPelt" tag="butcherHarvest" count="1"/>
-			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="3"/>
 			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="15"/>
 			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
 			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -73,9 +77,9 @@
 			</effect_group>
 			
 			<drop event="Harvest" name="foodRawMeat" count="0" tool_category="Butcher"/>
-			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="40"/> <!-- animalWolf -->
+			<drop event="Harvest" name="foodRawMeat" tag="butcherHarvest" count="24"/> <!-- animalWolf -->
 			<drop event="Harvest" name="resourceFirePelt" tag="butcherHarvest" count="1"/>
-			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="5"/>
+			<drop event="Harvest" name="resourceAnimalFat" tag="butcherHarvest" count="3"/>
 			<drop event="Harvest" name="resourceBone" tag="butcherHarvest" count="15"/>
 			<drop event="Harvest" name="resourceBone" tag="allToolsHarvest" count="5"/>
 			<drop event="Harvest" name="foodRawMeat" count="1" tag="WasteTreasuresCompleteHarvest"/>
@@ -188,12 +192,14 @@
 		</entity_class>
 
 		<!-- Stripper with fire bow attack -->
-		<entity_class name="zombieFireBowStripper" extends="zombieDarlene">
+		<entity_class name="zombieFireBowStripper" extends="zombiePartyGirl">
 			<property name="Tags" value="entity,zombie,walker"/>
-			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZCocktailWaitress.prefab"/>
 
 			<!-- Gameplay -->
 			<property name="HandItem" value="meleeHandFireArrow"/>
+			
+			<property name="LootDropProb" value=".2"/>
+			<property name="LootDropEntityClass" value="EntityLootContainerBowStripper"/>
 			
 			<property name="AITask-1" value="RangedAttackTarget" data="itemType=1;cooldown=1;duration=5"/>
 			<property name="AITask-2" value="Wander"/>
@@ -210,10 +216,11 @@
 
 		<!-- "Reindeer" with Zombieclaus on its back -->
 		<entity_class name="zombieclaus" extends="animalTemplateHostile">
+			<property name="UserSpawnType" value="Menu"/>
 			<property name="Class" value="EntityVulture"/>
 			<property name="EntityType" value="Zombie"/>
 			<property name="Tags" value="entity,animal,hostile,deer,feral,radiated"/>
-			<property name="ReplaceMaterial1" value="#Entities/Zombies?Zombies/Materials/feral_eye.mat"/>
+			<property name="ReplaceMaterial1" value="@:Entities/Zombies/Zombies/Materials/rad_eye.mat"/>
 			<property name="MapIcon" value="ui_game_symbol_tracking_deer"/>
 			<property name="TrackerIcon" value="ui_game_symbol_tracking_deer"/>
 			<property name="AvatarController" value="AvatarAnimalController"/>
@@ -232,13 +239,14 @@
 			<property name="SurfaceCategory" value="organic"/>
 			<property name="ParticleOnDeath" value="blood_death"/>
 			
-			<property name="SoundRandom" value="Enemies/Snow_Zombie_Male/zombiemalesnowroam"/>
-			<property name="SoundAlert" value="Enemies/Snow_Zombie_Male/zombiemalesnowalert"/>
-			<property name="SoundAttack" value="Enemies/Snow_Zombie_Male/zombiemalesnowattack"/>
-			<property name="SoundHurt" value="Animals/stagpain"/>
-			<property name="SoundDeath" value="Animals/stagdeath"/>
-			<property name="SoundSense" value="Enemies/Snow_Zombie_Male/zombiemalesnowsense"/>
-
+			<property name="SoundRandom" value="zombielumberjack_roam"/>
+			<property name="SoundAlert" value="zombielumberjack_alert"/>
+			<property name="SoundAttack" value="zombielumberjack_attack"/>
+			<property name="SoundHurt" value="zombielumberjack_pain"/>
+			<property name="SoundDeath" value="zombielumberjack_death"/>
+			<property name="SoundSense" value="zombielumberjack_sense"/>
+			<property name="SoundFootstepModifier" value="zombielumberjack_footstep"/>
+			
 			<!-- Gameplay -->
 			<property name="DismemberMultiplierHead" value=".4"/>
 			<property name="DismemberMultiplierArms" value=".4"/>
@@ -287,11 +295,11 @@
 		
 		<!-- Loot bag for Dragons -->
 		<entity_class name="EntityLootContainerDragon">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="Mesh" value="#Entities/LootContainers?zpackRedPrefab.prefab"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
 			<property name="ModelType" value="Custom"/>
 			<property name="Prefab" value="Backpack"/>
-			<property name="Class" value="EntityLootContainer"/>
 			<property name="Parent" value="Backpack"/>
 			<property name="IsEnemyEntity" value="false"/>
 			<property name="TimeStayAfterDeath" value="1200"/>
@@ -301,15 +309,29 @@
 		
 		<!-- Loot bag for Zombieclaus -->
 		<entity_class name="EntityLootContainerZombieclaus">
-			<property name="HideInSpawnMenu" value="true"/>
-			<property name="Mesh" value="#Entities/LootContainers?zpackBluePrefab.prefab"/>
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackBluePrefab.prefab"/>
 			<property name="ModelType" value="Custom"/>
 			<property name="Prefab" value="Backpack"/>
-			<property name="Class" value="EntityLootContainer"/>
 			<property name="Parent" value="Backpack"/>
 			<property name="IsEnemyEntity" value="false"/>
 			<property name="TimeStayAfterDeath" value="1200"/>
 			<property name="LootListOnDeath" value="zPackZombieclaus"/>
+			<property name="Faction" value="none"/>
+		</entity_class>
+		
+		<!-- Loot bag for BowStripper -->
+		<entity_class name="EntityLootContainerBowStripper">
+			<property name="Class" value="EntityLootContainer"/>
+			<property name="UserSpawnType" value="Console"/>
+			<property name="Mesh" value="@:Entities/LootContainers/zpackRedPrefab.prefab"/>
+			<property name="ModelType" value="Custom"/>
+			<property name="Prefab" value="Backpack"/>
+			<property name="Parent" value="Backpack"/>
+			<property name="IsEnemyEntity" value="false"/>
+			<property name="TimeStayAfterDeath" value="1200"/>
+			<property name="LootListOnDeath" value="zPackBowStripper"/>
 			<property name="Faction" value="none"/>
 		</entity_class>
 	</append>

@@ -1,7 +1,7 @@
 <configs>
 	<!-- Making solarbank learnable -->
 	<append xpath="/blocks/block[@name='solarbank']">
-		<property name="UnlockedBy" value="perkAdvancedEngineering,solarbankSchematic"/>
+		<property name="UnlockedBy" value="craftingElectrician"/>
 	</append>
 	<append xpath="/blocks">
 		<block name="cntDragonnest">

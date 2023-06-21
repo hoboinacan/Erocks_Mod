@@ -24,12 +24,14 @@
 				<property name="nav_object" value="rally" />
 			</objective>
 
-			<action type="SpawnEnemy" id="zombieclaus" value="8" phase="3"/>
-
+			<action type="SpawnEnemy" id="zombieclaus" value="4" phase="3"/>
+			
+			<!-- No longer works in A21?
 			<objective type="ZombieKill" id="zombieclaus" value="4" phase="3"/>
-
+			-->
+			
 			<objective type="InteractWithNPC">
-				<property name="phase" value="4"/>
+				<property name="phase" value="3"/>
 			</objective>
 			
 			<!-- rewards set to match T2 clear -->
@@ -70,9 +72,12 @@
 
 			<action type="SpawnEnemy" id="animalWolfElectric" value="4" phase="3"/>
 			<action type="SpawnEnemy" id="animalWolfFire" value="4" phase="3"/>
-
+			
+			<!-- No longer works in A21?
 			<objective type="AnimalKill" id="animalWolfElectric" value="2" phase="3"/>
 			<objective type="AnimalKill" id="animalWolfFire" value="2" phase="3"/>
+			-->
+			
 			<objective type="FetchKeep" id="resourceFirePelt" value="1" phase="3"/>
 			<objective type="FetchKeep" id="resourceElectricPelt" value="1" phase="3"/>
 
@@ -100,7 +105,7 @@
 			<property name="repeatable" value="true"/>
 			<property name="category_key" value="challenge"/>
 			<property name="offer_key" value="challenge_KillDragon_offer"/>
-			<property name="difficulty" value="medium"/>
+			<property name="difficulty" value="insane"/>
 			<property name="completiontype" value="TurnIn"/>
 			<property name="completion_key" value="challenge_KillDragon_completion"/>
 			<property name="shareable" value="true"/>
@@ -119,11 +124,13 @@
 			<action type="SpawnEnemy" id="animalZombieElectricDragon" value="1" phase="3"/>
 			<action type="SpawnEnemy" id="animalZombieFireDragon" value="1" phase="3"/>
 			
+			<!-- No longer works in A21?
 			<objective type="ZombieKill" id="animalZombieElectricDragon" value="1" phase="3"/>
 			<objective type="ZombieKill" id="animalZombieFireDragon" value="1" phase="3"/>
+			-->
 			
 			<objective type="TreasureChest">
-				<property name="phase" value="4" />
+				<property name="phase" value="3" />
 				<property name="block" value="cntBuriedLootStashChest"/>
 				<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
 				<property name="distance" value="200-800"/>
@@ -134,20 +141,27 @@
 				<property name="radius_reduction_sound" value="ui_radius_shrink" />
 			</objective>
 			
+			<objective type="ReturnToNPC">
+				<property name="phase" value="4"/>
+				<property name="nav_object" value="return_to_trader" />
+			</objective>
+			
 			<objective type="InteractWithNPC">
-				<property name="phase" value="5"/>
+				<property name="phase" value="4"/>
 			</objective>
 			
 			<!-- rewards set to match T3 clear -->
 			<reward type="Exp" value="6000"/>
-			<reward type="Item" id="casinoCoin" value="2500"/>
+			<reward type="Item" id="casinoCoin" value="2000"/>
 			
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="4"/>
 			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="3"/>
 			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="3"/>
 			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
 			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="3"/>
 			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="3"/>
 			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
 		</quest>
 	</append>
 </configs>

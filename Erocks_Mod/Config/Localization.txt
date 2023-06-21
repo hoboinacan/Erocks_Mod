@@ -43,3 +43,5 @@ challenge_KillDragon,Quest,Challenge Info,,,Kill A Dragon
 challenge_KillDragon_offer,Quest,Challenge Info,,,"A monstrous beast has been terrorizing the area. This thing is more dangerous than the undead and must be stopped.\n\nIf you're foolish enough to take it on make sure you go prepared."
 challenge_KillDragon_subtitle,Quest,Challenge Info,,,Kill A Dragon
 challenge_KillDragon_completion,Quest,Quest Info,,,"What! How? You should be dead. Here, take something as a reward."
+electricianT5,progression,Attribute,,,Tier 5: Solar Power
+foodT5,progression,Attribute,,,Tier 5: Dragon Bacon and Eggs

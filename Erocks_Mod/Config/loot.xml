@@ -8,7 +8,7 @@
 			<item name="casinoCoin" count="100,2000" loot_prob_template="med"/>
 			<item group="groupZpackStrong" loot_prob_template="med" force_prob="true"/>
 		</lootgroup>
-		<lootcontainer id="842" name="zPackZombieclaus" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
+		<lootcontainer name="zPackZombieclaus" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
 			<item group="groupZpackZombieclaus"/>
 		</lootcontainer>
 		
@@ -18,19 +18,17 @@
 			<item name="foodDragonEgg" count="1,2" loot_prob_template="med" force_prob="true"/>
 			<item group="groupZpackBoss" loot_prob_template="med" force_prob="true"/>
 		</lootgroup>
-		<lootcontainer id="843" name="zPackDragon" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
+		<lootcontainer name="zPackDragon" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
 			<item group="groupZpackDragon"/>
 		</lootcontainer>
-	</append>
-	
-	<!-- Adding solar bank schematic to same loot group as other generators -->
-	<append xpath="/lootcontainers/lootgroup[@name='schematicsElectrical']">
-		<item name="solarbankSchematic"/>
-	</append>
-	
-	<!-- Adding solar cell schematic to same loot group as drone -->
-	<append xpath="/lootcontainers/lootgroup[@name='groupBotSchematics']">
-		<item name="solarCellSchematic" loot_prob_template="low"/>
+		
+		<!-- Adding BowStripper loot table and bag -->
+		<lootgroup name="groupZpackBowStripper" count="all">
+			<item name="ammoProjectileFireArrow" count="1,10"/>
+		</lootgroup>
+		<lootcontainer name="zPackBowStripper" count="1" size="6,3" destroy_on_close="false" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1" loot_quality_template="qualPlus1Template">
+			<item group="groupZpackBowStripper"/>
+		</lootcontainer>
 	</append>
 	
 	<!-- Adding Kill challenges to same loot group as treasure maps -->
@@ -40,8 +38,24 @@
 		<item name="qc_killDragon"/>
 	</append>
 	
+	<!-- Adding solar bank schematic to same loot group as other generators -->
+	<!-- A21 removed schematics
+	<append xpath="/lootcontainers/lootgroup[@name='schematicsElectrical']">
+		<item name="solarbankSchematic"/>
+	</append>
+	-->
+	
+	<!-- Adding solar cell schematic to same loot group as drone -->
+	<!-- A21 removed schematics
+	<append xpath="/lootcontainers/lootgroup[@name='groupBotSchematics']">
+		<item name="solarCellSchematic" loot_prob_template="low"/>
+	</append>
+	-->
+		
 	<!-- Adding Dragon Bacon and Eggs Schematic to same loot group as T2 food schematics -->
+	<!-- A21 removed schematics
 	<append xpath="/lootcontainers/lootgroup[@name='farmingCookingRecipesT2']">
 		<item name="foodDragonBaconAndEggsSchematic" loot_prob_template="low"/>
 	</append>
+	-->
 </configs>

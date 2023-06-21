@@ -5,13 +5,12 @@
 	<!-- Making solarCell learnable and sellable -->
 	<setattribute xpath="/items/item[@name='solarCell']/property[@name='SellableToTrader']" name="value">true</setattribute>
 	<append xpath="/items/item[@name='solarCell']">
-		<property name="Tags" value="learnable,perkAdvancedEngineering"/>
-		<property name="UnlockedBy" value="perkAdvancedEngineering,solarCellSchematic"/>
+		<property name="UnlockedBy" value="craftingElectrician"/>
 	</append>
 	
 	<!-- My new player items -->
 	<append xpath="/items">
-		<!-- schematics -->
+		<!-- Schematics removed in A21
 		<item name="solarbankSchematic">
 			<property name="Extends" value="schematicNoQualityMaster"/>
 			<property name="CreativeMode" value="Player"/>
@@ -45,14 +44,15 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
 			</effect_group>
 		</item>
+		-->
 		
 		<!-- Elemental Wolf pelts -->
 		<item name="resourceFirePelt">
 			<property name="CustomIcon" value="resourceLeather"/>
 			<property name="CustomIconTint" value="128,0,0" />
 			<property name="HoldType" value="45"/>
-			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="MresourceLeather"/>
 			<property name="Weight" value="5"/>
 			<property name="Stacknumber" value="20"/>
@@ -66,8 +66,8 @@
 			<property name="CustomIcon" value="resourceLeather"/>
 			<property name="CustomIconTint" value="0,0,128" />
 			<property name="HoldType" value="45"/>
-			<property name="Meshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="MresourceLeather"/>
 			<property name="Weight" value="5"/>
 			<property name="Stacknumber" value="20"/>
@@ -84,8 +84,8 @@
 			<property name="Tags" value="food"/>
 			<property name="HoldType" value="31"/>
 			<property name="DisplayType" value="foodRaw"/>
-			<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="Stacknumber" value="1"/>
 			<property name="EconomicValue" value="3000"/>
@@ -117,8 +117,8 @@
 			<property name="Tags" value="food"/>
 			<property name="HoldType" value="31"/>
 			<property name="DisplayType" value="foodRaw"/>
-			<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="MfoodRawMeat"/>
 			<property name="Stacknumber" value="50"/>
 			<property name="EconomicBundleSize" value="1"/>
@@ -149,15 +149,15 @@
 		<item name="foodDragonBaconAndEggs">
 			<property name="CustomIcon" value="foodBaconAndEggs"/>
 			<property name="CustomIconTint" value="80,143,0"/>
-			<property name="Tags" value="food"/>
+			<property name="Tags" value="food,foodSkill"/>
 			<property name="HoldType" value="31"/>
 			<property name="DisplayType" value="food"/>
-			<property name="Meshfile" value="#Other/Items?Misc/parcelPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Misc/parcelPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
 			<property name="Material" value="Morganic"/>
 			<property name="Stacknumber" value="10"/> <!-- STK food -->
 			<property name="EconomicValue" value="1000"/>
-			<property name="UnlockedBy" value="foodDragonBaconAndEggsSchematic"/>
+			<property name="UnlockedBy" value="craftingFood"/>
 			<property class="Action0">
 				<property name="Class" value="Eat"/>
 				<property name="Delay" value="5"/>
@@ -178,25 +178,26 @@
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$foodAmountAdd" operation="add" value="200"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodHealthAmount" operation="add" value="150"/>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar=".foodStaminaBonusAdd" operation="add" value="100"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 				
 				<!-- Healthbar buff -->
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="add" value="303"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="set" value="903">
-					<requirement name="CVarCompare" cvar="$buffDrugHealthBarDuration" operation="GT" value="903"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="add" value="363"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugHealthBarDuration" operation="set" value="1083">
+					<requirement name="CVarCompare" cvar="$buffDrugHealthBarDuration" operation="GT" value="1083"/></triggered_effect>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugHealthBar"/>
 				
 				<!-- Oh Shitz Drops buff -->
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugOhShitzDropsDuration" operation="add" value="303"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugOhShitzDropsDuration" operation="set" value="903">
-					<requirement name="CVarCompare" cvar="$buffDrugOhShitzDropsDuration" operation="GT" value="903"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugOhShitzDropsDuration" operation="add" value="363"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugOhShitzDropsDuration" operation="set" value="1083">
+					<requirement name="CVarCompare" cvar="$buffDrugOhShitzDropsDuration" operation="GT" value="1083"/></triggered_effect>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugOhShitzDrops"/>
 				
 				<!-- Skull Crushers buff -->
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="add" value="303"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="set" value="903">
-					<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration" operation="GT" value="903"/></triggered_effect>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="add" value="363"/>
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="$buffDrugSkullCrushersDuration" operation="set" value="1083">
+					<requirement name="CVarCompare" cvar="$buffDrugSkullCrushersDuration" operation="GT" value="1083"/></triggered_effect>
 				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffDrugSkullCrushers"/>
+				
+				<triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" buff="buffProcessConsumables"/>
 			</effect_group>
 		</item>
 		
@@ -243,7 +244,7 @@
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="30"/>
 				<property name="DamageBlock" value="100"/>
-				<property name="Buff" value="buffInjuryBleedingZombie,buffInfectionCatch,buffShocked"/>
+				<property name="Buff" value="buffInjuryBleedingTwo,buffInfectionCatch,buffShocked"/>
 			</property>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Vomit"/>
@@ -268,7 +269,7 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="25"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="25"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingZombie"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingTwo"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffShocked"/>
 				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
@@ -278,7 +279,7 @@
 
 		<!-- Ammo for electric cone -->
 		<item name="ammoProjectileZombieElectricCone">
-			<property name="Meshfile" value="particleeffects/p_electric_shock_small" />
+			<property name="Meshfile" value="ParticleEffects/p_electric_shock_small" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
 			<property class="Action1"> <!-- ranged -->
@@ -318,7 +319,7 @@
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="30"/>
 				<property name="DamageBlock" value="100"/>
-				<property name="Buff" value="buffInjuryBleedingZombie,buffInfectionCatch,buffBurningFlamingArrow"/>
+				<property name="Buff" value="buffInjuryBleedingTwo,buffInfectionCatch,buffBurningFlamingArrow"/>
 			</property>
 			<property class="Action1"> <!-- ranged/right click -->
 				<property name="Class" value="Vomit"/>
@@ -343,7 +344,7 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="25"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="25"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingZombie"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingTwo"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffBurningFlamingArrow"/>
 				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
@@ -353,7 +354,7 @@
 
 		<!-- Ammo for fire cone -->
 		<item name="ammoProjectileZombieFireCone">
-			<property name="Meshfile" value="particleeffects/p_fire_small" />
+			<property name="Meshfile" value="ParticleEffects/p_fire_small" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
 			<property class="Action1"> <!-- ranged -->
@@ -393,7 +394,7 @@
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="50"/>
 				<property name="DamageBlock" value="300"/>
-				<property name="Buff" value="buffInjuryBleedingZombie,buffInfectionCatch,buffInjuryStunned01,buffShocked"/>
+				<property name="Buff" value="buffInjuryBleedingTwo,buffInfectionCatch,buffInjuryStunned01,buffShocked"/>
 			</property>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Vomit"/>
@@ -418,7 +419,7 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingZombie"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingTwo"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value=".30" tags="buffInjuryStunned01"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffShocked"/>
@@ -429,7 +430,7 @@
 
 		<!-- Ammo for electric Bombard -->
 		<item name="ammoProjectileZombieElectricBombard">
-			<property name="Meshfile" value="particleeffects/p_electric_shock_small" />
+			<property name="Meshfile" value="ParticleEffects/p_electric_shock_small" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
 			<property name="DamageType" value="Heat"/>
@@ -467,7 +468,7 @@
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="50"/>
 				<property name="DamageBlock" value="300"/>
-				<property name="Buff" value="buffInjuryBleedingZombie,buffInfectionCatch,buffInjuryStunned01,buffBurningMolotov"/>
+				<property name="Buff" value="buffInjuryBleedingTwo,buffInfectionCatch,buffInjuryStunned01,buffBurningMolotov"/>
 			</property>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Vomit"/>
@@ -492,7 +493,7 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingZombie"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingTwo"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value=".30" tags="buffInjuryStunned01"/>
 				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffBurningMolotov"/>
@@ -503,7 +504,7 @@
 
 		<!-- Ammo for fire Bombard -->
 		<item name="ammoProjectileZombieFireBombard">
-			<property name="Meshfile" value="particleeffects/p_fire_small" />
+			<property name="Meshfile" value="ParticleEffects/p_fire_small" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
 			<property name="DamageType" value="Heat"/>
@@ -532,7 +533,7 @@
 			</effect_group>
 		</item>
 
-		<!-- Weapon set for fire arrow attack -->
+		<!-- Weapon set for fire bow attack -->
 		<item name="meleeHandFireArrow">
 			<property name="Extends" value="meleeHandMaster"/>
 			<property name="CreativeMode" value="None"/>
@@ -541,7 +542,7 @@
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="20"/>
 				<property name="DamageBlock" value="100"/>
-				<property name="Buff" value="buffBurningElement"/>
+				<!-- <property name="Buff" value="buffBurningElement"/> -->
 			</property>
 			<property class="Action1"> <!-- UseAction -->
 				<property name="Class" value="Vomit"/>
@@ -556,7 +557,7 @@
 				<property name="Sound_end" value=""/>
 				<property name="Sound_empty" value=""/>
 				<property name="Sound_reload" value=""/>
-				<property name="Buff" value="buffBurningElement"/>
+				<!-- <property name="Buff" value="buffBurningElement"/> -->
 			</property>
 			<effect_group name="meleeHandFireArrow" tiered="false">
 				<passive_effect name="ModSlots" operation="base_set" value="0"/>
@@ -567,27 +568,34 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="2"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="2"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-
-				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="10"><!--InfectionRegular-->
+				
+				<!-- Crit debuffs taken from feral cop attack -->
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo"
+					weights=".11,.07,.07,.05,.29,.36,.11"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="15"><!--InfectionFeral-->
 					<requirement name="CVarCompare" target="other" cvar="infectionCounter" operation="GT" value="0"/></triggered_effect>
+				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="abrasionZombieHit" operation="set" value="2400"/><!--AbrasionFeral-->
 			</effect_group>
 		</item>
 
-		<!-- Ammo for fire arrow -->
+		<!-- Ammo for fire bow -->
 		<item name="ammoProjectileFireArrow">
-			<property name="Extends" value="ammoArrowSteelAP"/>
+			<property name="Extends" value="ammoArrowIron"/>
 			<property name="CustomIcon" value="ammoArrowFlaming"/>
 			<property name="CustomIconTint" value="FF3D13"/>
-			<property name="Tags" value="ammo,ranged"/>
 			<property name="DisplayType" value="ammoArrowFlaming"/>
-			<property name="Meshfile" value="#Other/Items?Weapons/Ranged/Bows/WoodenBow/flamingArrowPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Weapons/Ranged/Bows/Arrows/arrow_flamingPrefab.prefab"/>
 			<property name="HoldType" value="45"/>
-			<property name="HandMeshfile" value="#Other/Items?Misc/sackPrefab.prefab"/>
-			<property name="DropMeshfile" value="#Other/Items?Misc/sack_droppedPrefab.prefab"/>
+			<property name="HandMeshfile" value="@:Other/Items/Misc/sackPrefab.prefab"/>
+			<property name="DropMeshfile" value="@:Other/Items/Misc/sack_droppedPrefab.prefab"/>
+			<property name="IsSticky" value="false"/>
+			<property name="UsableUnderwater" value="false"/>
 			<property name="EconomicValue" value="100"/>
 			<property name="EconomicBundleSize" value="1"/>
-			<property name="StickyOffset" value=".7"/>
 			<property name="Damage_type" value="Heat"/>
+			<property name="StickyOffset" value=".7"/>
+			
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
 				<property name="ExplodeOnHit" value="false"/>
@@ -596,29 +604,86 @@
 				<property name="Velocity" value="18"/>
 				<property name="LifeTime" value="15"/>
 				<!-- Damage bonus here applies to zombie attack -->
-				<property name="DamageEntity" value="15"/>
+				<property name="DamageEntity" value="1"/> <!-- removing most damage so only causes burn -->
 				<property name="DamageBlock" value="100"/>
 				<property name="DamageBonus.earth" value="0"/>
 				<property name="DamageBonus.stone" value=".5"/>
 				<property name="DamageBonus.metal" value=".5"/>
 				<property name="DamageBonus.wood" value="2.5"/>
 				<property name="DamageBonus.cloth" value="2.5"/>
+				<property name="Buff" value="buffBurningElement"/>
 			</property>
 			<effect_group name="ammoProjectileFireArrow" tiered="false">
 				<!-- Damage bonus here applies to player attack -->
-				<passive_effect name="EntityDamage" operation="base_set" value="15" tags="perkArchery"/>
+				<passive_effect name="EntityDamage" operation="base_set" value="25" tags="perkArchery"/>
 				<passive_effect name="BlockDamage" operation="base_set" value="100" tags="perkArchery"/>
+				<passive_effect name="BlockDamage" operation="base_add" value="200" tags="barrelExplosive"/>
 				<passive_effect name="TargetArmor" operation="perc_add" value="-.5"/><display_value name="dTargetArmor" value="-.5"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,metal"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="0" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2.5" tags="wood,cloth"/>
 				<passive_effect name="ProjectileVelocity" operation="base_set" value="18" tags="perkArchery"/>
+				<passive_effect name="ProjectileStickChance" operation="perc_set" value="0"/>
 				
-				<triggered_effect trigger="onProjectileImpact" action="ModifyCVar" target="other" cvar="$buffBurningFlamingArrowDuration" operation="set" value="3" />
-				<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="other" buff="buffBurningFlamingArrow"/>
+				<!-- torch values
+				<effect_group name="new Fire Proc" tiered="false">
+					<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".93"/>
+					<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="30"/>
+						<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffBurningElement"/>
+						<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="10">
+							<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="0"/></triggered_effect>
+						<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="11">
+							<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="1"/></triggered_effect>
+				</effect_group>
+				-->
 				
-				<display_value name="dEntityDamageFire" value="120"/>
-				<display_value name="dDuration" value="14"/>
+				<!-- too strong, trying something new
+				<triggered_effect trigger="onProjectileImpact" action="ModifyCVar" target="other" cvar="$buffBurningFlamingArrowDuration" operation="set" value="4">
+					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="0"/>
+				</triggered_effect>
+				<triggered_effect trigger="onProjectileImpact" action="ModifyCVar" target="other" cvar="$buffBurningFlamingArrowDuration" operation="set" value="10">
+					<requirement name="ProgressionLevel" progression_name="perkFiremansAlmanacMolotov" operation="Equals" value="1"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onProjectileImpact" action="AddBuff" target="other" buff="buffBurningFlamingArrow">
+					<requirement name="CVarCompare" target="other" cvar="_underwater" operation="LT" value="0.3"/>
+				</triggered_effect>
+				-->
+				
+				<display_value name="dEntityDamageFire" value="6"/>
+				<display_value name="dDuration" value="4"/>
+			</effect_group>
+			
+			<effect_group name="always refresh existing Fire Proc" tiered="false">
+				<requirement name="CVarCompare" cvar="_underwater" operation="LT" value=".93"/>
+				<requirement name="HasBuff" target="other" buff="buffBurningElement"/>
+					<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" buff="buffBurningElement"/>
+					<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="$buffBurningElementDuration" operation="set" value="4" />
+			</effect_group>
+			
+			<!-- Particle effect on player load into bow -->
+			<effect_group name="ammoArrowFlamingFire" tiered="false">
+
+				<triggered_effect trigger="onSelfEquipStart" action="AttachParticleEffectToEntity" particle="p_fire_flaming_arrow" parent_transform="particle_joint">
+					<requirement name="CVarCompare" cvar="_underwater" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveParticleEffectFromEntity" particle="p_fire_flaming_arrow"/>
+				<triggered_effect trigger="onSelfWaterSurface" action="AttachParticleEffectToEntity" particle="p_fire_flaming_arrow" parent_transform="particle_joint"/>
+				<triggered_effect trigger="onSelfWaterSubmerge" action="RemoveParticleEffectFromEntity" particle="p_fire_flaming_arrow"/>
+				<triggered_effect trigger="onReloadStart" action="AttachParticleEffectToEntity" particle="p_fire_flaming_arrow" parent_transform="particle_joint">
+					<requirement name="CVarCompare" cvar="_underwater" operation="LT" value="1"/>
+				</triggered_effect>
+
+				<triggered_effect trigger="onSelfEquipStart" action="AttachParticleEffectToEntity" particle="p_fire_arrow_flaming_cloth" parent_transform="Cloth_4">
+					<requirement name="CVarCompare" cvar="_underwater" operation="LT" value="1"/>
+				</triggered_effect>
+				<triggered_effect trigger="onSelfEquipStop" action="RemoveParticleEffectFromEntity" particle="p_fire_arrow_flaming_cloth"/>
+				<triggered_effect trigger="onSelfWaterSurface" action="AttachParticleEffectToEntity" particle="p_fire_arrow_flaming_cloth" parent_transform="Cloth_4"/>
+				<triggered_effect trigger="onSelfWaterSubmerge" action="RemoveParticleEffectFromEntity" particle="p_fire_arrow_flaming_cloth"/>
+				<triggered_effect trigger="onReloadStart" action="AttachParticleEffectToEntity" particle="p_fire_arrow_flaming_cloth" parent_transform="Cloth_4">
+					<requirement name="CVarCompare" cvar="_underwater" operation="LT" value="1"/>
+				</triggered_effect>
+
 			</effect_group>
 		</item>
 
@@ -656,7 +721,7 @@
 		<!-- Ammo for zombieclaus attack -->
 		<item name="ammoProjectileCandyCane">
 			<property name="Extends" value="ammoProjectileZombieVomitRadiated"/>
-			<property name="Meshfile" value="#Other/Items?Weapons/Melee/Candycane/candycaneShivPrefab.prefab"/>
+			<property name="Meshfile" value="@:Other/Items/Weapons/Melee/Candycane/candycaneShivPrefab.prefab"/>
 			<property name="Material" value="Mmetal"/>
 			<property name="CreativeMode" value="None"/>
 			<property name="Damage_type" value="Slashing"/>

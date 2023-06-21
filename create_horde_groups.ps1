@@ -3,8 +3,8 @@
 #	Any group with gamestage number less than values used in variables will get new monsters added
 #
 #
-$vanilla_entityGroupsFile = 'F:\Program Files\steamapps\common\7 Days To Die\Data\Config\entitygroups.xml'
-$output_file = 'F:\7DTDmoded\git\Erocks_Mod\entitygroups_edited.xml'
+$vanilla_entityGroupsFile = 'D:\SteamLibrary\steamapps\common\7 Days To Die\Data\Config\entitygroups.xml'
+$output_file = 'D:\Github\entitygroups_edited.xml'
 
 #entitygroups to change
 $entityGroupNames = @(
@@ -30,28 +30,28 @@ $medProb = '.5'
 
 #entity templates inserted into entitygroups
 $earlyTemplate = (
-	"`t`t<entity name=""zombieFireBowStripper"" prob=""$rareProb"" />"
+	"`t`tzombieFireBowStripper, $rareProb"
 	)
 $midTemplate = (
-	"`t`t<entity name=""zombieFireBowStripper"" prob=""$lowProb"" />",
-	"`t`t<entity name=""animalWolfElectric"" prob=""$rareProb"" />",
-	"`t`t<entity name=""animalWolfFire"" prob=""$rareProb"" />"
+	"`t`tzombieFireBowStripper, $lowProb",
+	"`t`tanimalWolfElectric, $rareProb",
+	"`t`tanimalWolfFire, $rareProb"
 	)
 $midlateTemplate = (
-	"`t`t<entity name=""zombieFireBowStripper"" prob=""$medProb"" />",
-	"`t`t<entity name=""animalWolfElectric"" prob=""$lowProb"" />",
-	"`t`t<entity name=""animalWolfFire"" prob=""$lowProb"" />",
-	"`t`t<entity name=""animalZombieElectricDragon"" prob=""$veryRareProb"" />",
-	"`t`t<entity name=""animalZombieFireDragon"" prob=""$veryRareProb"" />",
-	"`t`t<entity name=""zombieclaus"" prob=""$rareProb"" />"
+	"`t`tzombieFireBowStripper, $medProb",
+	"`t`tanimalWolfElectric, $lowProb",
+	"`t`tanimalWolfFire, $lowProb",
+	"`t`tanimalZombieElectricDragon, $veryRareProb",
+	"`t`tanimalZombieFireDragon, $veryRareProb",
+	"`t`tzombieclaus, $rareProb"
 	)
 $lateTemplate = (
-	"`t`t<entity name=""zombieFireBowStripper"" />",
-	"`t`t<entity name=""animalWolfElectric"" prob=""$medProb"" />",
-	"`t`t<entity name=""animalWolfFire"" prob=""$medProb"" />",
-	"`t`t<entity name=""animalZombieElectricDragon"" prob=""$rareProb"" />",
-	"`t`t<entity name=""animalZombieFireDragon"" prob=""$rareProb"" />",
-	"`t`t<entity name=""zombieclaus"" prob=""$lowProb"" />"
+	"`t`tzombieFireBowStripper",
+	"`t`tanimalWolfElectric, $medProb",
+	"`t`tanimalWolfFire, $medProb",
+	"`t`tanimalZombieElectricDragon, $rareProb",
+	"`t`tanimalZombieFireDragon, $rareProb",
+	"`t`tzombieclaus, $lowProb"
 	)
 
 $outputLines = @("`t<!-- BEGIN AUTO-GENERATED HORDE LIST APPENDS -->")
