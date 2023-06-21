@@ -45,3 +45,7 @@ challenge_KillDragon_subtitle,Quest,Challenge Info,,,Kill A Dragon
 challenge_KillDragon_completion,Quest,Quest Info,,,"What! How? You should be dead. Here, take something as a reward."
 electricianT5,progression,Attribute,,,Tier 5: Solar Power
 foodT5,progression,Attribute,,,Tier 5: Dragon Bacon and Eggs
+loadingTipFireBow,UI,Loading Screen,x,,Beware the strippers. They've found a stash of bows and their burning sensation is infectious.
+loadingTipFireBow_title,UI,Loading Screen,x,,Fire-bow Strippers
+loadingTipZombieclaus,UI,Loading Screen,x,,He knows if you've been bad or good (Spoiler: it's bad). Zombieclaus is coming to town!
+loadingTipZombieclaus_title,UI,Loading Screen,x,,Zombieclaus

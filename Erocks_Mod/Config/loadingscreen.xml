@@ -1,0 +1,6 @@
+<configs>
+	<append xpath="/doc/tips">
+		<tip key="loadingTipFireBow" />
+		<tip key="loadingTipZombieclaus" />
+	</append>
+</configs>

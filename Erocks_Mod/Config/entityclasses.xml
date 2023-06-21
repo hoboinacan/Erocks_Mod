@@ -192,9 +192,7 @@
 		</entity_class>
 
 		<!-- Stripper with fire bow attack -->
-		<entity_class name="zombieFireBowStripper" extends="zombiePartyGirl">
-			<property name="Tags" value="entity,zombie,walker"/>
-
+		<entity_class name="zombieFireBowStripper" extends="zombiePartyGirlRadiated">
 			<!-- Gameplay -->
 			<property name="HandItem" value="meleeHandFireArrow"/>
 			
