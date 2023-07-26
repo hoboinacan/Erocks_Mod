@@ -1,17 +1,24 @@
 <configs>
 	<append xpath="/quests">
 		<quest id="challenge_KillZombieclaus">
-			<property name="name_key" value="challenge_KillZombieclaus"/>
+			<property name="name_key" value="challenge_KillZombieclaus" param1="name" />
 			<property name="subtitle_key" value="challenge_KillZombieclaus_subtitle"/>
 			<property name="description_key" value="challenge_KillZombieclaus_offer"/>
 			<property name="icon" value="ui_game_symbol_zombie"/>
 			<property name="repeatable" value="true"/>
 			<property name="category_key" value="challenge"/>
+			<property name="difficulty" value="hard"/>
+			<property name="difficulty_tier" value="1" param1="difficulty" />
 			<property name="offer_key" value="challenge_KillZombieclaus_offer"/>
-			<property name="difficulty" value="medium"/>
+			<property name="statement_key" value="quest_clear_statement"/>
+			<property name="response_key" value="quest_clear_response"/>
+			<property name="login_rally_reset" value="true"/>
+			<property name="reward_choices_count" value="5" />
+			<property name="extra_tags" value="" param1="extra_tags" />
+			<property name="shareable" value="true"/>
+			
 			<property name="completiontype" value="TurnIn"/>
 			<property name="completion_key" value="challenge_KillZombieclaus_completion"/>
-			<property name="shareable" value="true"/>
 			
 			<objective type="RandomGoto" value="500-800" phase="1">
 				<property name="completion_distance" value="50"/>
@@ -32,18 +39,22 @@
 			
 			<objective type="InteractWithNPC">
 				<property name="phase" value="3"/>
+				<property name="nav_object" value="return_to_trader" />
+				<property name="use_closest" value="true" />
 			</objective>
 			
-			<!-- rewards set to match T2 clear -->
+			<!-- rewards set to match T5 fetch -->
 			<reward type="Exp" value="4500"/>
 			<reward type="Item" id="casinoCoin" value="1350"/>
 			
-			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="2"/>
-			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
-			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
-			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="2"/>
-			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="2"/>
-			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+			<reward type="LootItem" id="groupQuestTools" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestSchematics" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="5"/>
+			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
+			<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true"/>
 		</quest>
 		
 		<quest id="challenge_KillElementalWolves">
@@ -54,7 +65,7 @@
 			<property name="repeatable" value="true"/>
 			<property name="category_key" value="challenge"/>
 			<property name="offer_key" value="challenge_KillElementalWolves_offer"/>
-			<property name="difficulty" value="medium"/>
+			<property name="difficulty" value="hard"/>
 			<property name="completiontype" value="TurnIn"/>
 			<property name="completion_key" value="challenge_KillElementalWolves_completion"/>
 			<property name="shareable" value="true"/>
