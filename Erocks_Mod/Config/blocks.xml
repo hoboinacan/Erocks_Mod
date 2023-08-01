@@ -70,16 +70,21 @@
 		</block>
 	
 		<block name="signNeonColdBeerPlayer">
-			<property name="Class" value="Light"/>
-			<property name="DescriptionKey" value="lightPOIGroupDesc"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="Class" value="PoweredLight"/>
+			<property name="UnlockedBy" value="craftingElectrician"/>
+			<property name="CustomIcon" value="signNeonColdBeer"/>
+			<property name="DescriptionKey" value="lightPlayerGroupDesc"/>
 			<property name="Material" value="Mglass"/>
 			<property name="Shape" value="ModelEntity"/>
 			<property name="Model" value="Entities/Electrical/signNeonColdBeerPrefab"/>
+			<property name="ImposterDontBlock" value="true"/>
 			<property name="WaterFlow" value="permitted"/>
 			<property name="HandleFace" value="South"/>
 			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
 			<property name="StabilitySupport" value="false"/>
 			<property name="EconomicValue" value="150"/> <!-- disassemble value -->
+			<property name="RuntimeSwitch" value="true"/>
 			<property name="TakeDelay" value="5"/>
 			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 			<drop event="Harvest" name="resourceElectricParts" count="0,1" tag="salvageHarvest"/>
@@ -88,7 +93,8 @@
 			<property name="SortOrder1" value="B700"/>
 			<property name="SortOrder2" value="0001"/>
 			<property name="Group" value="Science,Decor/Miscellaneous"/>
-			<property name="FilterTags" value="MC_building,SC_commercial,SC_lighting,MC_outdoor,A21_NEW"/>
+			<property name="Tags" value="electricianSkill"/>
+			<property name="FilterTags" value="MC_playerBlocks,SC_electrical"/>
 		</block>
 	</append>
 </configs>

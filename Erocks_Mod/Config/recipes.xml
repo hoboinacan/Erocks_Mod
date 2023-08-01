@@ -22,6 +22,8 @@
 			</effect_group>
 		</recipe>
 		
+		
+		<!-- DECORATION ITEMS -->
 		<recipe name="rugBear" count="1">
 			<ingredient name="resourceLeather" count="40"/>
 		</recipe>
@@ -40,6 +42,15 @@
 			<ingredient name="resourceForgedSteel" count="20"/>
 			<ingredient name="resourceSpring" count="20"/>
 			<ingredient name="resourceMechanicalParts" count="20"/>
+		</recipe>
+		
+		<recipe name="signNeonColdBeerPlayer" count="1" craft_area="workbench" tags="perkAdvancedEngineering,learnable">
+			<ingredient name="resourceForgedIron" count="15"/>
+			<ingredient name="resourceElectricParts" count="15"/>
+			<ingredient name="resourceHeadlight" count="1"/>
+			<effect_group>
+				<passive_effect name="CraftingIngredientCount" level="0,1,2,3,4" operation="perc_add" value=".56,.56,.56,.34,.15" tags="resourceForgedIron,resourceElectricParts"/>
+			</effect_group>
 		</recipe>
 	</append>
 </configs>
