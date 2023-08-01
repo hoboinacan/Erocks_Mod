@@ -21,5 +21,25 @@
 				<passive_effect name="CraftingIngredientCount" level="2,6" operation="perc_add" value=".5,2.5" tags="resourceForgedSteel,resourceElectricParts,resourceScrapPolymers,resourceDuctTape"/>
 			</effect_group>
 		</recipe>
+		
+		<recipe name="rugBear" count="1">
+			<ingredient name="resourceLeather" count="40"/>
+		</recipe>
+		
+		<recipe name="woodenBear" count="1">
+			<ingredient name="resourceWood" count="50"/>
+		</recipe>
+		
+		<recipe name="jailDoorWhite" count="1" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="resourceForgedSteel" count="10"/>
+			<ingredient name="resourceSpring" count="10"/>
+			<ingredient name="resourceMechanicalParts" count="10"/>
+		</recipe>
+		
+		<recipe name="jailDoorDoubleWhite" count="1" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="resourceForgedSteel" count="20"/>
+			<ingredient name="resourceSpring" count="20"/>
+			<ingredient name="resourceMechanicalParts" count="20"/>
+		</recipe>
 	</append>
 </configs>

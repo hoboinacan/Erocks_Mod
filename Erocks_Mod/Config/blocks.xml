@@ -3,6 +3,14 @@
 	<append xpath="/blocks/block[@name='solarbank']">
 		<property name="UnlockedBy" value="craftingElectrician"/>
 	</append>
+	
+	<!-- Making bear rug repairable -->
+	<append xpath="/blocks/block[@name='rugBear']">
+		<property class="RepairItems">
+			<property name="resourceLeather" value="1"/>
+		</property>
+	</append>
+	
 	<append xpath="/blocks">
 		<block name="cntDragonnest">
 			<property name="CustomIcon" value="cntBirdnest"/>
@@ -59,6 +67,28 @@
 			<drop event="Destroy" name="resourceYuccaFibers" count="2,8"/>
 			<property name="FilterTags" value="MC_building,SC_loot"/>
 			<property name="IndexName" value="quest_feather"/>
+		</block>
+	
+		<block name="signNeonColdBeerPlayer">
+			<property name="Class" value="Light"/>
+			<property name="DescriptionKey" value="lightPOIGroupDesc"/>
+			<property name="Material" value="Mglass"/>
+			<property name="Shape" value="ModelEntity"/>
+			<property name="Model" value="Entities/Electrical/signNeonColdBeerPrefab"/>
+			<property name="WaterFlow" value="permitted"/>
+			<property name="HandleFace" value="South"/>
+			<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
+			<property name="StabilitySupport" value="false"/>
+			<property name="EconomicValue" value="150"/> <!-- disassemble value -->
+			<property name="TakeDelay" value="5"/>
+			<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
+			<drop event="Harvest" name="resourceElectricParts" count="0,1" tag="salvageHarvest"/>
+			<drop event="Destroy" name="resourceBrokenGlass" count="1,5"/>
+			<drop event="Fall" count="0" stick_chance="0"/>
+			<property name="SortOrder1" value="B700"/>
+			<property name="SortOrder2" value="0001"/>
+			<property name="Group" value="Science,Decor/Miscellaneous"/>
+			<property name="FilterTags" value="MC_building,SC_commercial,SC_lighting,MC_outdoor,A21_NEW"/>
 		</block>
 	</append>
 </configs>
