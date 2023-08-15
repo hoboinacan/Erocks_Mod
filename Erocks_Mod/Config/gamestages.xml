@@ -1,0 +1,6 @@
+<configs>
+
+	<!-- Set wandering horde spawn numbers to max -->
+	<set xpath="/gamestages/spawner[@name='WanderingHorde']/*/spawn/@num">30</set>
+
+</configs>
