@@ -52,5 +52,27 @@
 				<passive_effect name="CraftingIngredientCount" level="0,1,2,3,4" operation="perc_add" value=".56,.56,.56,.34,.15" tags="resourceForgedIron,resourceElectricParts"/>
 			</effect_group>
 		</recipe>
+		
+		<recipe name="piano" count="1" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="resourceWood" count="50"/>
+			<ingredient name="resourceForgedIron" count="10"/>
+			<ingredient name="resourceScrapPolymers" count="30" />
+			<ingredient name="resourceNail" count="10"/>
+			<ingredient name="resourceSpring" count="10"/>
+			<ingredient name="resourceMechanicalParts" count="10"/>
+		</recipe>
+		
+		<recipe name="decoPoolTable" count="1" craft_area="workbench" tags="workbenchCrafting">
+			<ingredient name="resourceCloth" count="30"/>
+			<ingredient name="resourceWood" count="50"/>
+			<ingredient name="resourceNail" count="10"/>
+			<ingredient name="resourceScrapPolymers" count="10"/>
+		</recipe>
+		
+		<recipe name="posterBlockVariantHelper" count="1">
+			<ingredient name="resourcePaper" count="10"/>
+			<ingredient name="resourceWood" count="5"/>
+			<ingredient name="resourceGlue" count="2"/>
+		</recipe>
 	</append>
 </configs>

@@ -12,6 +12,7 @@
 	</append>
 	
 	<append xpath="/blocks">
+		<!-- Adding dragon nest that will spawn the dragons -->
 		<block name="cntDragonnest">
 			<property name="CustomIcon" value="cntBirdnest"/>
 			<property name="CustomIconTint" value="80,143,0"/>
@@ -45,6 +46,8 @@
 			<property name="FilterTags" value="MC_building,SC_loot"/>
 			<property name="IndexName" value="quest_feather"/>
 		</block>
+		
+		<!-- destroyed version of dragon nest -->
 		<block name="cntDragonnestBroken">
 			<property name="CustomIcon" value="cntBirdnest"/>
 			<property name="CustomIconTint" value="80,143,0"/>
@@ -68,7 +71,8 @@
 			<property name="FilterTags" value="MC_building,SC_loot"/>
 			<property name="IndexName" value="quest_feather"/>
 		</block>
-	
+		
+		<!-- making cold beer neon sign placeable and work with electricity -->
 		<block name="signNeonColdBeerPlayer">
 			<property name="CreativeMode" value="Player"/>
 			<property name="Class" value="PoweredLight"/>
@@ -95,6 +99,20 @@
 			<property name="Group" value="Science,Decor/Miscellaneous"/>
 			<property name="Tags" value="electricianSkill"/>
 			<property name="FilterTags" value="MC_playerBlocks,SC_electrical"/>
+		</block>
+		
+		<!-- Adding variant helper for crafting the posters -->
+		<block name="posterBlockVariantHelper">
+			<property name="Extends" value="signPosterMovieMammasJustice"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="signPosterMovieMammasJustice"/>
+			<property name="ItemTypeIcon" value="all_blocks"/>
+			<property name="DescriptionKey" value="blockVariantHelperGroupDesc"/>
+			<property name="SelectAlternates" value="true"/>
+			<property name="PlaceAltBlockValue" value="signPosterMovieMammasJustice,signPosterWantedMissing01,signPosterWantedMissing02,signPosterWantedMissing03,signPosterMovie2159,signPosterMovieLoneWolf,signPosterMovieSexualTension,signSnackPosterAtom,signSnackPosterBretzels,signSnackPosterEyeCandy,signSnackPosterFortBites,signSnackPosterGoblinO,signSnackPosterHackers,signSnackPosterHealth,signSnackPosterJailBreakers,signSnackPosterJerky,signSnackPosterNachos,signSnackPosterNachosRanch,signSnackPosterNerd,signSnackPosterOopsClassic,signSnackPosterOops,signSnackPosterPrime,signSnackPosterRamen,signSnackPosterSkullCrusher,posterCalendarWorkingStiff,posterBlueprintPistol,posterBlueprintRifle,shootingRangeTarget,targetPoster1,targetPoster2"/>
+			<property name="SortOrder1" value="U200"/>
+			<property name="SortOrder2" value="0000"/>
+			<property name="FilterTags" value="MC_playerBlocks,SC_playerHelpers"/>
 		</block>
 	</append>
 </configs>
