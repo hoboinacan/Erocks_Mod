@@ -38,6 +38,7 @@
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
 		<entity name="zombieFireBowStripper" prob=".1"/>
 		<entity name="zombieclaus" prob=".01"/>
+		<entity name="zombieScreamer" prob=".05"/>
 	</append>
 	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesBoss']">
