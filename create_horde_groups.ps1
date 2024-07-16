@@ -4,7 +4,7 @@
 #
 #
 $vanilla_entityGroupsFile = 'E:\SteamLibrary\steamapps\common\7 Days To Die\Data\Config\entitygroups.xml'
-$output_file = 'D:\Github\entitygroups_edited.xml'
+$output_file = 'D:\GitClones\7days\Erocks_Mod\entitygroups_edited.xml'
 
 #entitygroups to change
 $entityGroupNames = @(
@@ -13,13 +13,16 @@ $entityGroupNames = @(
 	'sleeperHordeStageGS',
 	'badassHordeStageGS',
 	'scoutHordeStageGS',
-	'feralHordeStageGS'
+	'feralHordeStageGS',
+	'policeCarHordeStageGS',
+	'defenseHordeStageGS'
 	)
 
 #gamestage settings
-$earlyGamestage = 40
-$midGamestage = 75
-$midlateGamestage = 200
+$beginStage = 60 #set to first occurance of a feral in BM Horde (no spawns added to GS groups below this value)
+$earlyGamestage = 100  #set to first occurance of feral cop in BM Horde
+$midGamestage = 140 #set to first occurance of radiated in BM Horde
+$midlateGamestage = 190 #set to first occurance of radiated cop in BM Horde
 $lateGamestage = 99999
 
 #probability templates
@@ -59,6 +62,11 @@ foreach ($line in $entityGroupsLines) {
 	foreach ($group in $entityGroupNames) {
 		if($line -match """($group(\d+))") {
 			#write-host ($Matches[1] + "---" + $Matches[2])
+			
+			#skip early gamestages
+			if([int]$Matches[2] -lt $beginStage) {
+				continue
+			}
 			
 			#find lines that match our entity groups and grab gamestage number
 			$outputLines += "`t<append xpath=""/entitygroups/entitygroup[starts-with(@name,'$group" + $Matches[2] + "')]"">"
