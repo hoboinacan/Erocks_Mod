@@ -6,39 +6,40 @@
 		front(+)/back(-)
 
 	local_rotation values (degrees):
-		pitch: right(+)/left(-),
-		yaw: up(+)/down(-),
-		roll: front(+)/back(-)
+		pitch: up(+)/down(-),
+		yaw: right(+)/left(-),
+		roll: right(+)/left(-)
 -->
 	<append xpath="/buffs">
 		
 		<!-- head burning effect -->
 		<buff name="burningDeco" hidden="true">
 			<effect_group>
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="Head"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_fire_small" parent_transform="Head" local_offset="0,0,0" />
 			</effect_group>
 		</buff>
 		
 		<!-- head electric effect -->
 		<buff name="electricDeco" hidden="true">
 			<effect_group>
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_electric_shock_small" parent_transform="Head"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" parent_transform="Head" local_offset="0,0,0" />
 			</effect_group>
 		</buff>
 		
 		<!-- hand flaming bow -->
 		<buff name="FireBowDeco" hidden="true">
 			<effect_group>
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Other/Items/Weapons/Ranged/Bows/advancedBow/advancedCompoundBow/advancedCompoundBowPrefab.prefab" parent_transform="LeftHand" local_offset="0,0,0" local_rotation="0,-90,0" local_scale="1,1,1" />
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="LeftHand"/>
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Other/Items/Weapons/Ranged/Bows/advancedBow/advancedCompoundBow/advancedCompoundBowPrefab.prefab" parent_transform="LeftHand" local_offset="-.1,0,0" local_rotation="0,-45,-45" local_scale="1,1,1" />
+				<!-- <triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="particleeffects/p_fire_small" parent_transform="LeftHand"/> -->
+				<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_fire_small" parent_transform="LeftHand" local_offset="0,0,0" />
 			</effect_group>
 		</buff>
 
 		<!-- Zombieclaus decoration -->
 		<buff name="zombieClausDeco" hidden="true">
 			<effect_group>
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Entities/Zombies/Prefabs/ZLumberjackRadiated.prefab" local_offset="0,.5,0" local_rotation="0,0,0" parent_transform="Spine" local_scale="1,1,1" />
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Other/Items/Weapons/Melee/Candycane/candycaneShivPrefab.prefab" local_offset=".14,.7,.35" local_rotation="0,0,45" parent_transform="Spine" local_scale="1,1,1" />
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Entities/Zombies/Prefabs/ZLumberjackRadiated.prefab" local_offset="0,-.5,.5" local_rotation="0,0,0" parent_transform="Spine" local_scale="1,1,1" />
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Other/Items/Weapons/Melee/Candycane/candycaneShivPrefab.prefab" local_offset=".25,.25,-.25" local_rotation="45,45,0" parent_transform="Spine" local_scale="1,1,1" />
 			</effect_group>
 		</buff>
 		
@@ -111,8 +112,6 @@
 
 				<triggered_effect trigger="onSelfBuffStart" action="ModifyScreenEffect" intensity="1" fade="2" effect_name="Cold"/>
 				<triggered_effect trigger="onSelfBuffRemove" action="ModifyScreenEffect" intensity="0" fade="1" effect_name="Cold"/>
-
-				<triggered_effect trigger="onSelfBuffStart" action="AddJournalEntry" journal="FreezingTip"/>
 			</effect_group>
 		</buff>
 	</append>

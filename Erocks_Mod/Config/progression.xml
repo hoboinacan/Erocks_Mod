@@ -1,27 +1,18 @@
 <configs>
 	<!-- Solar bank and cell recipe unlock -->
 	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']">
-		<display_entry icon="solarbank" name_key="electricianT5" has_quality="false" unlock_level="75,85,90,95,100" >
+		<display_entry icon="solarCell" name_key="electricianT5" has_quality="true" unlock_level="75,80,85,90,95,100" >
 			<unlock_entry item="solarbank,solarCell" unlock_tier="1" />
 		</display_entry>
 	</append>
 	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group">
 		<passive_effect name="RecipeTagUnlocked" operation="base_set" level="75,100" value="1" tags="solarbank,solarCell"/>
-		<passive_effect name="CraftingTier" operation="base_add" level="85,90,95,100" value="1,2,3,4" tags="solarCell"/>
+		<passive_effect name="CraftingTier" operation="base_add" level="80,85,90,95,100" value="1,2,3,4,5" tags="solarCell"/>
 	</append>
 	
 	<!-- Cold Beer Neon Sign -->
 	<csv xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/display_entry[@name_key='electricianT1']/unlock_entry/@item" delim="," op="add">signNeonColdBeerPlayer</csv>
 	<csv xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group/passive_effect[1]/@tags" delim="," op="add">signNeonColdBeerPlayer</csv>
-	
-	<!-- NOT WORKING
-	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/display_entry[@name_key='electricianT1']/unlock_entry" name="item">
-		signNeonColdBeerPlayer
-	</append >
-	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingElectrician']/effect_group/passive_effect[1]" name="tags">
-		signNeonColdBeerPlayer
-	</append >
-	-->
 	
 	<!-- Dragon Bacon and Eggs recipe unlock -->
 	<append xpath="/progression/crafting_skills/crafting_skill[@name='craftingFood']">

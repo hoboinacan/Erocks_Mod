@@ -10,42 +10,6 @@
 	
 	<!-- My new player items -->
 	<append xpath="/items">
-		<!-- Schematics removed in A21
-		<item name="solarbankSchematic">
-			<property name="Extends" value="schematicNoQualityMaster"/>
-			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="solarbank"/>
-			<property name="Unlocks" value="solarbank"/>
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="solarbank" operation="set" value="1"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
-			</effect_group>
-		</item>
-		
-		<item name="solarCellSchematic">
-			<property name="Extends" value="schematicNoQualityMaster"/>
-			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="solarCell"/>
-			<property name="Unlocks" value="solarCell"/>
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="solarCell" operation="set" value="1"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
-			</effect_group>
-		</item>
-		
-		<item name="foodDragonBaconAndEggsSchematic">
-			<property name="Extends" value="schematicNoQualityMaster"/>
-			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="foodBaconAndEggs"/>
-			<property name="CustomIconTint" value="80,143,0"/>
-			<property name="Unlocks" value="foodDragonBaconAndEggs"/>
-			<effect_group tiered="false">
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" cvar="foodDragonBaconAndEggs" operation="set" value="1"/>
-				<triggered_effect trigger="onSelfPrimaryActionEnd" action="GiveExp" exp="50"/>
-			</effect_group>
-		</item>
-		-->
-		
 		<!-- Elemental Wolf pelts -->
 		<item name="resourceFirePelt">
 			<property name="CustomIcon" value="resourceLeather"/>
@@ -237,28 +201,27 @@
 	<append xpath="/items">
 		<!-- Weapon set for electric cone attack -->
 		<item name="meleeHandZombieElectricCone">
-			<property name="Extends" value="meleeHandZombieCopFeral"/>
+			<property name="Extends" value="meleeHandMaster"/>
 			<property name="CreativeMode" value="None"/>
 			<property name="Degradation" value="99999" param1="true"/>
 			<property class="Action0"> <!-- melee/left cliick -->
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="30"/>
 				<property name="DamageBlock" value="100"/>
-				<property name="Buff" value="buffInjuryBleedingTwo,buffInfectionCatch,buffShocked"/>
 			</property>
-			<property class="Action1"> <!-- ranged -->
+			<property class="Action1"> <!-- ranged/right click -->
 				<property name="Class" value="Vomit"/>
 				<property name="Hitmask_override" value="Arrow"/>
 				<property name="Delay" value=".1"/>
+				<property name="Range" value="30"/>
 				<property name="Infinite_ammo" value="true"/>
 				<property name="Magazine_items" value="ammoProjectileZombieElectricCone"/>
-				<property name="Sound_warning" value=""/>
+				<property name="Sound_warning" value="electric_fence_impact"/>
 				<property name="Sound_start" value=""/>
 				<property name="Sound_repeat" value=""/>
 				<property name="Sound_end" value=""/>
 				<property name="Sound_empty" value=""/>
 				<property name="Sound_reload" value=""/>
-				<property name="Buff" value="buffShocked"/>
 			</property>
 			<effect_group name="meleeHandZombieElectricCone" tiered="false">
 				<passive_effect name="ModSlots" operation="base_set" value="0"/>
@@ -269,9 +232,9 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="25"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="25"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingTwo"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffShocked"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffShocked"
+					weights=".11,.07,.07,.05,.29,.36,.11,.34"/>
 				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
 					<requirement name="CVarCompare" target="other" cvar="infectionCounter" operation="GT" value="0"/></triggered_effect>
 			</effect_group>
@@ -279,25 +242,25 @@
 
 		<!-- Ammo for electric cone -->
 		<item name="ammoProjectileZombieElectricCone">
-			<property name="Meshfile" value="ParticleEffects/p_electric_shock_small" />
+			<property name="Meshfile" value="@:Other/Items/Misc/snowballPrefab.prefab" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
-				<property name="Explosion.ParticleIndex" value="0"/>
-				<property name="CollisionRadius" value="1"/>
-				<property name="FlyTime" value="2"/>
-				<property name="Velocity" value="10"/>
-				<property name="LifeTime" value="5"/>
-				<property name="Buff" value="buffShocked"/>
-				<!-- Damage bonus here applies to zombie attack -->
 				<property name="DamageEntity" value="15"/>
 				<property name="DamageBlock" value="50"/>
+				<property name="Explosion.ParticleIndex" value="7"/> <!-- molotov explosion -->
+				<property name="Velocity" value="10"/>
+				<property name="FlyTime" value="2"/>
+				<property name="LifeTime" value="5"/>
+				<property name="CollisionRadius" value="1"/>
 				<property name="DamageBonus.earth" value=".1"/>
 				<property name="DamageBonus.stone" value=".5"/>
 				<property name="DamageBonus.metal" value="2"/>
 				<property name="DamageBonus.wood" value=".5"/>
 				<property name="DamageBonus.cloth" value=".5"/>
+				<property name="Buff" value="buffShocked"/>
 			</property>
 			<effect_group name="ammoProjectileZombieElectricCone" tiered="false">
 				<!-- Damage bonus here applies to player attack -->
@@ -306,34 +269,33 @@
 				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,cloth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="metal"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".66" tags="buffShocked"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".34" tags="buffShocked"/>
 			</effect_group>
 		</item>
 
 		<!-- Weapon set for fire cone attack -->
 		<item name="meleeHandZombieFireCone">
-			<property name="Extends" value="meleeHandZombieCopFeral"/>
+			<property name="Extends" value="meleeHandMaster"/>
 			<property name="CreativeMode" value="None"/>
 			<property name="Degradation" value="99999" param1="true"/>
 			<property class="Action0"> <!-- melee/left cliick -->
 				<property name="Range" value="1.5"/>
 				<property name="DamageEntity" value="30"/>
 				<property name="DamageBlock" value="100"/>
-				<property name="Buff" value="buffInjuryBleedingTwo,buffInfectionCatch,buffBurningFlamingArrow"/>
 			</property>
 			<property class="Action1"> <!-- ranged/right click -->
 				<property name="Class" value="Vomit"/>
 				<property name="Hitmask_override" value="Arrow"/>
 				<property name="Delay" value=".1"/>
+				<property name="Range" value="30"/>
 				<property name="Infinite_ammo" value="true"/>
 				<property name="Magazine_items" value="ammoProjectileZombieFireCone"/>
-				<property name="Sound_warning" value=""/>
+				<property name="Sound_warning" value="torch_swoosh"/>
 				<property name="Sound_start" value=""/>
 				<property name="Sound_repeat" value=""/>
 				<property name="Sound_end" value=""/>
 				<property name="Sound_empty" value=""/>
 				<property name="Sound_reload" value=""/>
-				<property name="Buff" value="buffBurningFlamingArrow"/>
 			</property>
 			<effect_group name="meleeHandZombieFireCone" tiered="false">
 				<passive_effect name="ModSlots" operation="base_set" value="0"/>
@@ -344,9 +306,9 @@
 				<passive_effect name="SpreadDegreesVertical" operation="base_set" value="25"/>
 				<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="25"/>
 				<passive_effect name="SpreadMultiplierIdle" operation="base_set" value="1"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInjuryBleedingTwo"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".20" tags="buffInfectionCatch"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value="1" tags="buffBurningFlamingArrow"/>
+				<triggered_effect trigger="onSelfAttackedOther" action="AddBuff" target="other" fireOneBuff="true"
+					buff="buffFatiguedTrigger,buffArmSprainedCHTrigger,buffLegSprainedCHTrigger,buffLaceration,buffAbrasionCatch,buffInjuryStunned01CHTrigger,buffInjuryBleedingTwo,buffBurningHazardPlayer"
+					weights=".11,.07,.07,.05,.29,.36,.11,.34"/>
 				<triggered_effect trigger="onSelfAttackedOther" action="ModifyCVar" target="other" cvar="infectionCounter" operation="add" value="20"><!--InfectionRadiated-->
 					<requirement name="CVarCompare" target="other" cvar="infectionCounter" operation="GT" value="0"/></triggered_effect>
 			</effect_group>
@@ -354,25 +316,25 @@
 
 		<!-- Ammo for fire cone -->
 		<item name="ammoProjectileZombieFireCone">
-			<property name="Meshfile" value="ParticleEffects/p_fire_small" />
+			<property name="Meshfile" value="@:Other/Items/Tools/candlePrefab.prefab" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
+			<property name="CustomIcon" value="missingIcon"/>
 			<property class="Action1"> <!-- ranged -->
 				<property name="Class" value="Projectile"/>
-				<property name="Explosion.ParticleIndex" value="0"/>
-				<property name="CollisionRadius" value="1"/>
-				<property name="FlyTime" value="2"/>
-				<property name="Velocity" value="10"/>
-				<property name="LifeTime" value="5"/>
-				<property name="Buff" value="buffBurningFlamingArrow"/>
-				<!-- Damage bonus here applies to zombie attack -->
 				<property name="DamageEntity" value="15"/>
 				<property name="DamageBlock" value="50"/>
+				<property name="Explosion.ParticleIndex" value="7"/> <!-- molotov explosion -->
+				<property name="Velocity" value="10"/>
+				<property name="FlyTime" value="2"/>
+				<property name="LifeTime" value="5"/>
+				<property name="CollisionRadius" value="1"/>
 				<property name="DamageBonus.earth" value=".1"/>
 				<property name="DamageBonus.stone" value=".5"/>
 				<property name="DamageBonus.metal" value=".5"/>
 				<property name="DamageBonus.wood" value="2"/>
 				<property name="DamageBonus.cloth" value="2"/>
+				<property name="Buff" value="buffBurningHazardPlayer"/>
 			</property>
 			<effect_group name="ammoProjectileZombieFireCone" tiered="false">
 				<!-- Damage bonus here applies to player attack -->
@@ -381,7 +343,7 @@
 				<passive_effect name="DamageModifier" operation="perc_set" value=".5" tags="stone,metal"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value=".1" tags="earth"/>
 				<passive_effect name="DamageModifier" operation="perc_set" value="2" tags="cloth,wood"/>
-				<passive_effect name="BuffProcChance" operation="base_set" value=".66" tags="buffBurningFlamingArrow"/>
+				<passive_effect name="BuffProcChance" operation="base_set" value=".34" tags="buffBurningHazardPlayer"/>
 			</effect_group>
 		</item>
 
