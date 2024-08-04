@@ -81,11 +81,7 @@
 		<entity name="animalWolfElectric" prob=".01"/>
 		<entity name="animalWolfFire" prob=".01"/>
 	</append>
-	
-	<append xpath="/entitygroups/entitygroup[@name='VultureGroup']">
-		<entity name="zombieclaus" prob=".01"/>
-	</append>
-	
+		
 	<!-- BEGIN DF specific groups -->
 	<!--
 	<append xpath="/entitygroups/entitygroup[starts-with(@name,'BMHorde')]">
