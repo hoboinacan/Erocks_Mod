@@ -392,7 +392,7 @@
 
 		<!-- Ammo for electric Bombard -->
 		<item name="ammoProjectileZombieElectricBombard">
-			<property name="Meshfile" value="ParticleEffects/p_electric_shock_small" />
+			<property name="Meshfile" value="@:ParticleEffects/p_electric_shock_small.prefab" />
 			<property name="Material" value="Morganic"/>
 			<property name="CreativeMode" value="None"/>
 			<property name="DamageType" value="Heat"/>

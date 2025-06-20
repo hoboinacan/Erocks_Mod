@@ -1,0 +1,38 @@
+<configs>
+	<insertAfter xpath="/challenges/challenge_category[@name='Twitch']">
+		<challenge_category name="Erocks" title="Erocks" icon="ui_game_symbol_beer" />
+	</insertAfter>
+
+	<insertAfter xpath="/challenges/challenge_group[@name='Silly']">
+		<challenge_group category="Erocks" name="ErocksSlay" title_key="challengeGroupErockSlayer"
+			reward_text_key="challengeRewardErockSlayer" reward_event="challenge_group_reward_erock_slayer"/>
+		<challenge_group category="Erocks" name="ErocksHarvest" title_key="challengeGroupErockHarvest"
+			reward_text_key="challengeRewardErockHarvest" reward_event="challenge_group_reward_erock_slayer"/>
+	</insertAfter>
+
+	<append xpath="/challenges">
+		<!-- Slayer Challenges-->
+		<challenge name="huntFireWolves" title_key="challengeHuntFireWolf"  icon="ui_game_symbol_tracking_wolf" group="ErocksSlay"
+		short_description_key="challengeHuntFireWolfShort" description_key="challengeHuntFireWolfDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Kill" entity_names="animalWolfFire" count="5"/>
+		</challenge>
+		<challenge name="huntElecWolves" title_key="challengeHuntElecWolf"  icon="ui_game_symbol_tracking_wolf" group="ErocksSlay"
+		short_description_key="challengeHuntElecWolfShort" description_key="challengeHuntElecWolfDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Kill" entity_names="animalWolfElectric" count="5"/>
+		</challenge>
+		
+		<!-- Harvest Challenges-->
+		<challenge name="fireWolfHarvestLeather" title_key="challengeHarvestFireWolf" icon="ui_game_symbol_tracking_wolf" group="ErocksHarvest"
+			short_description_key="challengeHarvestFireWolfShort" description_key="challengeHarvestFireWolfDesc"
+			reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Gather" item="resourceFirePelt" count="5"/>
+		</challenge>
+		<challenge name="elecWolfHarvestLeather" title_key="challengeHarvestElecWolf" icon="ui_game_symbol_tracking_wolf" group="ErocksHarvest"
+			short_description_key="challengeHarvestElecWolfShort" description_key="challengeHarvestElecWolfDesc"
+			reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Gather" item="resourceElectricPelt" count="5"/>
+		</challenge>
+	</append>
+</configs>

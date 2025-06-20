@@ -174,5 +174,19 @@
 			<reward type="LootItem" id="groupQuestMods" ischosen="true" value="3"/>
 			<reward type="LootItem" id="groupQuestSteel" ischosen="true"/>
 		</quest>
+		
+		<quest id="challengegroup_reward_erock_slayer" template="challengegroup_reward_homesteading">
+			<variable name="name" value="zombie_slayer_name"/>
+			<variable name="subtitle" value="zombie_slayer_subtitle"/>
+			<variable name="description" value="zombie_slayer_desc"/>
+			<property name="completion_key" value="zombie_slayer_completion"/>
+			
+			<reward type="Exp" value="10000"/>
+			<reward type="Item" id="resourceFirePelt" ischosen="true" isfixed="true" value="5"/>
+			<reward type="Item" id="resourceElectricPelt" ischosen="true" isfixed="true" value="5"/>
+			<reward type="Item" id="qc_killZombieclaus" ischosen="true" isfixed="true" value="1"/>
+			<reward type="Item" id="qc_killElementalWolves" ischosen="true" isfixed="true" value="1"/>
+			<reward type="Item" id="qc_killDragon" ischosen="true" isfixed="true" value="1"/>
+		</quest>
 	</append>
 </configs>

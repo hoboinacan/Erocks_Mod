@@ -30,7 +30,7 @@
 	
 	<!-- Add new enemies to world spawn groups -->
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
-		<entity name="zombieFireBowStripper" prob=".5"/>
+		<entity name="zombieFireBowStripper" prob=".1"/>
 	</append>
 	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesWasteland']">
@@ -51,8 +51,12 @@
 		<entity name="zombieScreamer" prob=".05"/>
 	</append>
 	
-	<append xpath="/entitygroups/entitygroup[@name='SnowZombies']">
-		<entity name="zombieclaus" prob=".1"/>
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesSnow']">
+		<entity name="zombieclaus" prob=".05"/>
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesSnowNight']">
+		<entity name="zombieclaus" prob=".5"/>
 	</append>
 	
 	<append xpath="/entitygroups/entitygroup[@name='ZombiesBoss']">

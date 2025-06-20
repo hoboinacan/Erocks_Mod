@@ -38,7 +38,7 @@
 		<!-- Zombieclaus decoration -->
 		<buff name="zombieClausDeco" hidden="true">
 			<effect_group>
-				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Entities/Zombies/Prefabs/ZLumberjackRadiated.prefab" local_offset="0,-.5,.5" local_rotation="0,0,0" parent_transform="Spine" local_scale="1,1,1" />
+				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Entities/Zombies/Lumberjack/ZLumberjackRadiated.prefab" local_offset="0,-.5,.5" local_rotation="0,0,0" parent_transform="Spine" local_scale="1,1,1" />
 				<triggered_effect trigger="onSelfBuffStart" action="AttachPrefabToEntity" prefab="@:Other/Items/Weapons/Melee/Candycane/candycaneShivPrefab.prefab" local_offset=".25,.25,-.25" local_rotation="45,45,0" parent_transform="Spine" local_scale="1,1,1" />
 			</effect_group>
 		</buff>

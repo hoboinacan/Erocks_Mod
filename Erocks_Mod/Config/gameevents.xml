@@ -1,0 +1,7 @@
+<configs>
+	<append xpath="/gameevents">
+		<action_sequence name="challenge_group_reward_erock_slayer" template="challenge_group_reward_homesteading">
+			<variable name="quest" value="challengegroup_reward_erock_slayer" />
+		</action_sequence>
+	</append>
+</configs>

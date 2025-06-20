@@ -1,10 +1,10 @@
-#reads vanilla entity group file and creates the appends for all groups based on gamse stages
+#reads vanilla entity group file and creates the appends for all groups based on game stages
 #	Only changes groups with names in $entityGroupNames
 #	Any group with gamestage number less than values used in variables will get new monsters added
 #
 #
 $vanilla_entityGroupsFile = 'E:\SteamLibrary\steamapps\common\7 Days To Die\Data\Config\entitygroups.xml'
-$output_file = 'D:\GitClones\7days\Erocks_Mod\entitygroups_edited.xml'
+$output_file = "$PWD\entitygroups_edited.xml"
 
 #entitygroups to change
 $entityGroupNames = @(

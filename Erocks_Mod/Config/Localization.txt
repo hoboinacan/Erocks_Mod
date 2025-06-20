@@ -49,3 +49,19 @@ loadingTipZombieclaus,UI,Loading Screen,x,,He knows if you've been bad or good (
 loadingTipZombieclaus_title,UI,Loading Screen,x,,Zombieclaus
 signNeonColdBeerPlayer,blocks,block,,,Cold Beer Neon Sign (Powered)
 posterBlockVariantHelper,blocks,block,,,Wall Poster
+challengeGroupErockSlayer,challenges,Challenge Group,,,Erock's Slayer
+challengeGroupErockHarvest,challenges,Challenge Group,,,Erock's Harvester
+challengeRewardErockSlayer,Challenges,Challenge Objective,,,Slay Creatures
+challengeRewardErockHarvest,Challenges,Challenge Objective,,,Harvest Creatures
+challengeHuntFireWolf,challenges,Challenge,,,Hunt Fire Wolves
+challengeHuntFireWolfDesc,challenges,Challenge,,,Fire Wolves can be found in the burnt forest or desert and breathe fire.
+challengeHuntFireWolfShort,challenges,Challenge,,,Hunt Fire Wolves for cash!
+challengeHuntElecWolf,challenges,Challenge,,,Hunt Electric Wolves
+challengeHuntElecWolfDesc,challenges,Challenge,,,Electric Wolves can be found in the snow or wasteland and breathe electric.
+challengeHuntElecWolfShort,challenges,Challenge,,,Hunt Electric Wolves for cash!
+challengeHarvestFireWolf,challenges,Challenge,,,Harvest Fire Wolves
+challengeHarvestFireWolfDesc,challenges,Challenge,,,Harvest the pelt from a Fire Wolf using a knife.
+challengeHarvestFireWolfShort,challenges,Challenge,,,Harvest the pelt from a Fire Wolf using a knife.
+challengeHarvestElecWolf,challenges,Challenge,,,Harvest Electric Wolves
+challengeHarvestElecWolfDesc,challenges,Challenge,,,Harvest the pelt from an Electric Wolf using a knife.
+challengeHarvestElecWolfShort,challenges,Challenge,,,Harvest the pelt from an Electric Wolf using a knife.
