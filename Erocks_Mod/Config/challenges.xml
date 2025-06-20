@@ -22,6 +22,21 @@
 		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
 			<objective type="Kill" entity_names="animalWolfElectric" count="5"/>
 		</challenge>
+		<challenge name="huntZombieclaus" title_key="challengeHuntZombieclaus"  icon="ui_game_symbol_tracking_wolf" group="ErocksSlay"
+		short_description_key="challengeHuntZombieclausShort" description_key="challengeHuntZombieclausDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Kill" entity_names="zombieclaus" count="5"/>
+		</challenge>
+		<challenge name="huntFireDragon" title_key="challengeHuntFireDragon"  icon="ui_game_symbol_tracking_wolf" group="ErocksSlay"
+		short_description_key="challengeHuntFireDragonShort" description_key="challengeHuntFireDragonDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Kill" entity_names="animalZombieFireDragon" count="5"/>
+		</challenge>
+		<challenge name="huntElecDragon" title_key="challengeHuntElecDragon"  icon="ui_game_symbol_tracking_wolf" group="ErocksSlay"
+		short_description_key="challengeHuntElecDragonShort" description_key="challengeHuntElecDragonDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Kill" entity_names="animalZombieElectricDragon" count="5"/>
+		</challenge>
 		
 		<!-- Harvest Challenges-->
 		<challenge name="fireWolfHarvestLeather" title_key="challengeHarvestFireWolf" icon="ui_game_symbol_tracking_wolf" group="ErocksHarvest"
@@ -33,6 +48,16 @@
 			short_description_key="challengeHarvestElecWolfShort" description_key="challengeHarvestElecWolfDesc"
 			reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
 			<objective type="Gather" item="resourceElectricPelt" count="5"/>
+		</challenge>
+		<challenge name="dragonHarvestMeat" title_key="challengeHarvestDragonMeat" icon="ui_game_symbol_tracking_wolf" group="ErocksHarvest"
+			short_description_key="challengeHarvestDragonMeatShort" description_key="challengeHarvestDragonMeatDesc"
+			reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Gather" item="foodDragonMeat" count="5"/>
+		</challenge>
+		<challenge name="dragonHarvestEgg" title_key="challengeHarvestDragonEgg" icon="ui_game_symbol_tracking_wolf" group="ErocksHarvest"
+			short_description_key="challengeHarvestDragonEggShort" description_key="challengeHarvestDragonEggDesc"
+			reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+			<objective type="Gather" item="foodDragonEgg" count="5"/>
 		</challenge>
 	</append>
 </configs>

@@ -2,5 +2,6 @@
 	<append xpath="/doc/tips">
 		<tip key="loadingTipFireBow" />
 		<tip key="loadingTipZombieclaus" />
+		<tip key="loadingTipDragons" />
 	</append>
 </configs>

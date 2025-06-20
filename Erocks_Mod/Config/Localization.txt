@@ -10,7 +10,9 @@ buffIsFreezingName,buffs,Buff,,,Freezing
 buffIsFreezingTooltip,buffs,Buff,,,You are freezing. Use coffee to warm yourself.
 ammoProjectileFireArrow,items,Ammo,,,Flaming Arrow v2 (Ammo)
 ammoProjectileFireArrowDesc,items,Ammo,,,A flaming arrow that was recovered from a special zombie. Usable in the compound bow.
+EntityLootContainerBowStripper,entityclasses,Entity Info,,,Stripper Loot
 EntityLootContainerZombieclaus,entityclasses,Entity Info,,,Zombieclaus Loot
+EntityLootContainerDragon,entityclasses,Entity Info,,,Dragon Loot
 cntDragonnest,blocks,Block,,,Dragon Nest
 cntDragonnestBroken,blocks,Block,,,Broken Dragon Nest
 solarbankSchematic,blocks,Electricity,,,Solar Bank Schematic
@@ -47,6 +49,8 @@ loadingTipFireBow,UI,Loading Screen,x,,Beware the strippers. They've found a sta
 loadingTipFireBow_title,UI,Loading Screen,x,,Fire-bow Strippers
 loadingTipZombieclaus,UI,Loading Screen,x,,He knows if you've been bad or good (Spoiler: it's bad). Zombieclaus is coming to town!
 loadingTipZombieclaus_title,UI,Loading Screen,x,,Zombieclaus
+loadingTipDragons,UI,Loading Screen,x,,Watch out in the wasteland. There be dragons!
+loadingTipDragons_title,UI,Loading Screen,x,,Dargons!
 signNeonColdBeerPlayer,blocks,block,,,Cold Beer Neon Sign (Powered)
 posterBlockVariantHelper,blocks,block,,,Wall Poster
 challengeGroupErockSlayer,challenges,Challenge Group,,,Erock's Slayer
@@ -59,9 +63,24 @@ challengeHuntFireWolfShort,challenges,Challenge,,,Hunt Fire Wolves for cash!
 challengeHuntElecWolf,challenges,Challenge,,,Hunt Electric Wolves
 challengeHuntElecWolfDesc,challenges,Challenge,,,Electric Wolves can be found in the snow or wasteland and breathe electric.
 challengeHuntElecWolfShort,challenges,Challenge,,,Hunt Electric Wolves for cash!
+challengeHuntZombieclaus,challenges,Challenge,,,Hunt Zombieclaus
+challengeHuntZombieclausDesc,challenges,Challenge,,,Zombieclaus can be found in the snow or wasteland. Bring a warm drink!
+challengeHuntZombieclausShort,challenges,Challenge,,,Hunt Zombieclaus
+challengeHuntFireDragon,challenges,Challenge,,,Hunt Fire Dragons
+challengeHuntFireDragonDesc,challenges,Challenge,,,Fire Dragons can be found in the wasteland and are very dangerous.
+challengeHuntFireDragonShort,challenges,Challenge,,,Hunt Fire Dragons
+challengeHuntElecDragon,challenges,Challenge,,,Hunt Electric Dragons
+challengeHuntElecDragonDesc,challenges,Challenge,,,Electric Dragons can be found in the wasteland and are very dangerous.
+challengeHuntElecDragonShort,challenges,Challenge,,,Hunt Electric Dragons
 challengeHarvestFireWolf,challenges,Challenge,,,Harvest Fire Wolves
 challengeHarvestFireWolfDesc,challenges,Challenge,,,Harvest the pelt from a Fire Wolf using a knife.
 challengeHarvestFireWolfShort,challenges,Challenge,,,Harvest the pelt from a Fire Wolf using a knife.
 challengeHarvestElecWolf,challenges,Challenge,,,Harvest Electric Wolves
 challengeHarvestElecWolfDesc,challenges,Challenge,,,Harvest the pelt from an Electric Wolf using a knife.
 challengeHarvestElecWolfShort,challenges,Challenge,,,Harvest the pelt from an Electric Wolf using a knife.
+challengeHarvestDragonMeat,challenges,Challenge,,,Harvest Dragon Meat
+challengeHarvestDragonMeatDesc,challenges,Challenge,,,Dragon Meat is tasty! Get some from a dragon with a knife.
+challengeHarvestDragonMeatShort,challenges,Challenge,,,Harvest a dragon using a knife.
+challengeHarvestDragonEgg,challenges,Challenge,,,Find Dragon Eggs
+challengeHarvestDragonEggDesc,challenges,Challenge,,,Sometimes dragons carry eggs. High in protein!
+challengeHarvestDragonEggShort,challenges,Challenge,,,Loot eggs from dragon drops.

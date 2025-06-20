@@ -693,7 +693,7 @@
 				<property name="Explosion.ParticleIndex" value="0"/> <!-- remove explosion effect -->
 				<property name="CollisionRadius" value=".5"/>
 				<property name="FlyTime" value="12"/>
-				<property name="Velocity" value="10"/>
+				<property name="Velocity" value="12"/>
 				<property name="LifeTime" value="15"/>
 				<property name="Buff" value="buffFreezingZombie"/>
 				<!-- Damage bonus here applies to zombie attack -->
